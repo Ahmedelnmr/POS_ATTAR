@@ -1,0 +1,1189 @@
+- 23:26:08.094 INFO: --------------------------------------------------------
+- 23:26:08.109 INFO: Started application
+- 23:26:08.109 INFO: Logging to: C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\debug.log
+- 23:26:08.109 INFO: Log level = DEBUG4
+- 23:26:08.109 INFO: Starting Mongoose 3.9c web server
+- 23:26:08.109 INFO: WWW directory: C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\www
+- 23:26:08.109 INFO: Index files: index.html,index.php
+- 23:26:08.125 INFO: CGI interpreter: C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\php\php-cgi.exe
+- 23:26:08.125 INFO: CGI pattern: **.php$
+- 23:26:08.125 INFO: Hide files patterns: 
+- 23:26:08.125 INFO: CGI environment variables set: TMP=C:\Users\DELL\AppData\Local\Temp\,TEMP=C:\Users\DELL\AppData\Local\Temp\,TMPDIR=C:\Users\DELL\AppData\Local\Temp\,SERVER_NAME=127.0.0.1,PHPDESKTOP_VERSION=57.0
+- 23:26:08.125 INFO: Web server url: http://127.0.0.1:6759/
+- 23:26:08.125 INFO: remote_debugging_port = 63622
+- 23:26:08.140 DEBUG: Command line string for the browser process: "C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\phpdesktop-chrome.exe" --no-sandbox --lang=en-US --log-file="C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\debug.log" --remote-debugging-port=63622
+- 23:26:08.453 DEBUG: App::OnContextInitialized()
+- 23:26:08.453 INFO: DPI, window enlarged by 25% new width/height = 1000/750
+- 23:26:08.453 DEBUG: Window max width/height = 1842/984
+- 23:26:08.453 DEBUG: GetBrowserWindow(): not found, hwnd = 68656
+- 23:26:08.453 DEBUG: WindowProc(): event WM_GETMINMAXINFO: could not fetch BrowserWindow
+- 23:26:08.469 DEBUG: BrowserWindow::CreateBrowserControl()
+- 23:26:08.484 DEBUG: StoreBrowserWindow(): hwnd = 68656
+- 23:26:08.000 DEBUG: Command line string for the gpu-process process: "C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\phpdesktop-chrome.exe" --type=gpu-process --no-sandbox --lang=en-US --log-file="C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\debug.log" --disable-d3d11 --disable-direct-composition --supports-dual-gpus=false --gpu-driver-bug-workarounds=7,10,16,18,19,20,23,26,41,74 --disable-gl-extensions="GL_KHR_blend_equation_advanced GL_KHR_blend_equation_advanced_coherent" --gpu-vendor-id=0x1002 --gpu-device-id=0x6606 --gpu-driver-vendor="Advanced Micro Devices, Inc." --gpu-driver-version=15.201.1101.0 --gpu-driver-date=8-6-2015 --gpu-secondary-vendor-ids=0x8086 --gpu-secondary-device-ids=0x0416 --lang=en-US --log-file="C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\debug.log" --service-request-channel-token=B5B803451569188D51D406810A27567E --mojo-platform-channel-handle=1836 /prefetch:2
+- 23:26:08.547 DEBUG: ClientHandler::OnAfterCreated()
+- 23:26:08.547 DEBUG: SetCefBrowser() called in ClientHandler::OnAfterCreated()
+- 23:26:08.562 DEBUG: OnLoadingStateChange: loading=1, url=
+- 23:26:08.000 DEBUG: Command line string for the renderer process: "C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\phpdesktop-chrome.exe" --type=renderer --no-sandbox --primordial-pipe-token=2EB18BDA10BE135D852CFCEE5C10D9C0 --lang=en-US --lang=en-US --log-file="C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\debug.log" --enable-pinch --device-scale-factor=1.25 --num-raster-threads=2 --enable-main-frame-before-activation --content-image-texture-target=0,0,3553;0,1,3553;0,2,3553;0,3,3553;0,4,3553;0,5,3553;0,6,3553;0,7,3553;0,8,3553;0,9,3553;0,10,3553;0,11,3553;0,12,3553;0,13,3553;0,14,3553;0,15,3553;1,0,3553;1,1,3553;1,2,3553;1,3,3553;1,4,3553;1,5,3553;1,6,3553;1,7,3553;1,8,3553;1,9,3553;1,10,3553;1,11,3553;1,12,3553;1,13,3553;1,14,3553;1,15,3553;2,0,3553;2,1,3553;2,2,3553;2,3,3553;2,4,3553;2,5,3553;2,6,3553;2,7,3553;2,8,3553;2,9,3553;2,10,3553;2,11,3553;2,12,3553;2,13,3553;2,14,3553;2,15,3553;3,0,3553;3,1,3553;3,2,3553;3,3,3553;3,4,3553;3,5,3553;3,6,3553;3,7,3553;3,8,3553;3,9,3553;3,10,3553;3,11,3553;3,12,3553;3,13,3553;3,14,3553;3,15,3553 --service-request-channel-token=2EB18BDA10BE135D852CFCEE5C10D9C0 --renderer-client-id=3 --mojo-platform-channel-handle=2424 /prefetch:1
+- 23:26:08.062 DEBUG: OnBrowserCreated()
+[0210/232609.090:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+- 23:26:11.906 INFO: GET 200 /
+- 23:26:11.906 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6759/
+- 23:26:38.250 DEBUG: WM_DESTROY
+- 23:26:38.250 DEBUG: RemoveBrowserWindow(): hwnd = 68656
+- 23:26:38.250 INFO: Stopping Mongoose web server
+- 23:26:38.297 DEBUG: Mongoose webserver stopped immediately
+- 23:26:38.312 DEBUG: OnBeforeClose() hwnd=68664
+- 23:26:38.359 DEBUG: RemoveBrowserWindow(): hwnd = 68664
+- 23:26:38.375 DEBUG: GetBrowserWindow(): not found, hwnd = 68664
+- 23:26:38.390 WARNING: RemoveBrowserWindow() failed: GetBrowserWindow() failed
+- 23:26:38.406 DEBUG: Calling CefQuitMessageLoop()
+- 23:26:38.562 INFO: Ended application
+- 23:26:38.562 INFO: --------------------------------------------------------
+- 23:30:33.125 INFO: --------------------------------------------------------
+- 23:30:33.125 INFO: Started application
+- 23:30:33.125 INFO: Logging to: C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\debug.log
+- 23:30:33.125 INFO: Log level = DEBUG4
+- 23:30:33.125 INFO: Starting Mongoose 3.9c web server
+- 23:30:33.125 INFO: WWW directory: C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\www
+- 23:30:33.125 INFO: Index files: index.html,index.php
+- 23:30:33.141 INFO: CGI interpreter: C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\php\php-cgi.exe
+- 23:30:33.141 INFO: CGI pattern: **.php$
+- 23:30:33.141 INFO: Hide files patterns: 
+- 23:30:33.141 INFO: CGI environment variables set: TMP=C:\Users\DELL\AppData\Local\Temp\,TEMP=C:\Users\DELL\AppData\Local\Temp\,TMPDIR=C:\Users\DELL\AppData\Local\Temp\,SERVER_NAME=127.0.0.1,PHPDESKTOP_VERSION=57.0
+- 23:30:33.141 INFO: Web server url: http://127.0.0.1:6909/
+- 23:30:33.156 INFO: remote_debugging_port = 56967
+- 23:30:33.156 DEBUG: Command line string for the browser process: "C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\phpdesktop-chrome.exe" --no-sandbox --lang=en-US --log-file="C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\debug.log" --remote-debugging-port=56967
+- 23:30:33.219 DEBUG: App::OnContextInitialized()
+- 23:30:33.219 INFO: DPI, window enlarged by 25% new width/height = 1000/750
+- 23:30:33.219 DEBUG: Window max width/height = 1842/984
+- 23:30:33.234 DEBUG: GetBrowserWindow(): not found, hwnd = 986138
+- 23:30:33.234 DEBUG: WindowProc(): event WM_GETMINMAXINFO: could not fetch BrowserWindow
+- 23:30:33.234 DEBUG: BrowserWindow::CreateBrowserControl()
+- 23:30:33.234 DEBUG: StoreBrowserWindow(): hwnd = 986138
+- 23:30:33.313 DEBUG: ClientHandler::OnAfterCreated()
+- 23:30:33.328 DEBUG: SetCefBrowser() called in ClientHandler::OnAfterCreated()
+- 23:30:33.344 DEBUG: OnLoadingStateChange: loading=1, url=
+- 23:30:33.000 DEBUG: Command line string for the gpu-process process: "C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\phpdesktop-chrome.exe" --type=gpu-process --no-sandbox --lang=en-US --log-file="C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\debug.log" --disable-d3d11 --disable-direct-composition --supports-dual-gpus=false --gpu-driver-bug-workarounds=7,10,16,18,19,20,23,26,41,74 --disable-gl-extensions="GL_KHR_blend_equation_advanced GL_KHR_blend_equation_advanced_coherent" --gpu-vendor-id=0x1002 --gpu-device-id=0x6606 --gpu-driver-vendor="Advanced Micro Devices, Inc." --gpu-driver-version=15.201.1101.0 --gpu-driver-date=8-6-2015 --gpu-secondary-vendor-ids=0x8086 --gpu-secondary-device-ids=0x0416 --lang=en-US --log-file="C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\debug.log" --service-request-channel-token=EB9E26A7A723C51E2605748AECD81A81 --mojo-platform-channel-handle=1808 /prefetch:2
+- 23:30:33.000 DEBUG: Command line string for the renderer process: "C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\phpdesktop-chrome.exe" --type=renderer --no-sandbox --primordial-pipe-token=DCAA99C97DAE7A383C1F8FBB2FFE902B --lang=en-US --lang=en-US --log-file="C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\debug.log" --enable-pinch --device-scale-factor=1.25 --num-raster-threads=2 --enable-main-frame-before-activation --content-image-texture-target=0,0,3553;0,1,3553;0,2,3553;0,3,3553;0,4,3553;0,5,3553;0,6,3553;0,7,3553;0,8,3553;0,9,3553;0,10,3553;0,11,3553;0,12,3553;0,13,3553;0,14,3553;0,15,3553;1,0,3553;1,1,3553;1,2,3553;1,3,3553;1,4,3553;1,5,3553;1,6,3553;1,7,3553;1,8,3553;1,9,3553;1,10,3553;1,11,3553;1,12,3553;1,13,3553;1,14,3553;1,15,3553;2,0,3553;2,1,3553;2,2,3553;2,3,3553;2,4,3553;2,5,3553;2,6,3553;2,7,3553;2,8,3553;2,9,3553;2,10,3553;2,11,3553;2,12,3553;2,13,3553;2,14,3553;2,15,3553;3,0,3553;3,1,3553;3,2,3553;3,3,3553;3,4,3553;3,5,3553;3,6,3553;3,7,3553;3,8,3553;3,9,3553;3,10,3553;3,11,3553;3,12,3553;3,13,3553;3,14,3553;3,15,3553 --service-request-channel-token=DCAA99C97DAE7A383C1F8FBB2FFE902B --renderer-client-id=3 --mojo-platform-channel-handle=2408 /prefetch:1
+[0210/233033.674:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+- 23:30:33.047 DEBUG: OnBrowserCreated()
+- 23:30:35.844 INFO: GET 200 /
+- 23:30:35.938 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6909/
+- 23:31:28.469 DEBUG: WM_DESTROY
+- 23:31:28.469 DEBUG: RemoveBrowserWindow(): hwnd = 986138
+- 23:31:28.469 INFO: Stopping Mongoose web server
+- 23:31:28.469 DEBUG: Mongoose webserver stopped immediately
+- 23:31:28.484 DEBUG: OnBeforeClose() hwnd=1051666
+- 23:31:28.484 DEBUG: RemoveBrowserWindow(): hwnd = 1051666
+- 23:31:28.484 DEBUG: GetBrowserWindow(): not found, hwnd = 1051666
+- 23:31:28.500 WARNING: RemoveBrowserWindow() failed: GetBrowserWindow() failed
+- 23:31:28.500 DEBUG: Calling CefQuitMessageLoop()
+- 23:31:28.047 DEBUG: OnBrowserDestroyed()
+- 23:31:28.578 INFO: Ended application
+- 23:31:28.578 INFO: --------------------------------------------------------
+- 23:31:30.110 INFO: --------------------------------------------------------
+- 23:31:30.125 INFO: Started application
+- 23:31:30.125 INFO: Logging to: C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\debug.log
+- 23:31:30.125 INFO: Log level = DEBUG4
+- 23:31:30.125 INFO: Starting Mongoose 3.9c web server
+- 23:31:30.125 INFO: WWW directory: C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\www
+- 23:31:30.125 INFO: Index files: index.html,index.php
+- 23:31:30.141 INFO: CGI interpreter: C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\php\php-cgi.exe
+- 23:31:30.141 INFO: CGI pattern: **.php$
+- 23:31:30.157 INFO: Hide files patterns: 
+- 23:31:30.157 INFO: CGI environment variables set: TMP=C:\Users\DELL\AppData\Local\Temp\,TEMP=C:\Users\DELL\AppData\Local\Temp\,TMPDIR=C:\Users\DELL\AppData\Local\Temp\,SERVER_NAME=127.0.0.1,PHPDESKTOP_VERSION=57.0
+- 23:31:30.172 INFO: Web server url: http://127.0.0.1:6928/
+- 23:31:30.172 INFO: remote_debugging_port = 60321
+- 23:31:30.172 DEBUG: Command line string for the browser process: "C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\phpdesktop-chrome.exe" --no-sandbox --lang=en-US --log-file="C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\debug.log" --remote-debugging-port=60321
+- 23:31:30.235 DEBUG: App::OnContextInitialized()
+- 23:31:30.250 INFO: DPI, window enlarged by 25% new width/height = 1000/750
+- 23:31:30.250 DEBUG: Window max width/height = 1842/984
+- 23:31:30.250 DEBUG: GetBrowserWindow(): not found, hwnd = 1379458
+- 23:31:30.250 DEBUG: WindowProc(): event WM_GETMINMAXINFO: could not fetch BrowserWindow
+- 23:31:30.266 DEBUG: BrowserWindow::CreateBrowserControl()
+- 23:31:30.266 DEBUG: StoreBrowserWindow(): hwnd = 1379458
+- 23:31:30.000 DEBUG: Command line string for the gpu-process process: "C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\phpdesktop-chrome.exe" --type=gpu-process --no-sandbox --lang=en-US --log-file="C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\debug.log" --disable-d3d11 --disable-direct-composition --supports-dual-gpus=false --gpu-driver-bug-workarounds=7,10,16,18,19,20,23,26,41,74 --disable-gl-extensions="GL_KHR_blend_equation_advanced GL_KHR_blend_equation_advanced_coherent" --gpu-vendor-id=0x1002 --gpu-device-id=0x6606 --gpu-driver-vendor="Advanced Micro Devices, Inc." --gpu-driver-version=15.201.1101.0 --gpu-driver-date=8-6-2015 --gpu-secondary-vendor-ids=0x8086 --gpu-secondary-device-ids=0x0416 --lang=en-US --log-file="C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\debug.log" --service-request-channel-token=74CC62798076A3C47237555889B5CCF5 --mojo-platform-channel-handle=1816 /prefetch:2
+- 23:31:30.344 DEBUG: ClientHandler::OnAfterCreated()
+- 23:31:30.344 DEBUG: SetCefBrowser() called in ClientHandler::OnAfterCreated()
+- 23:31:30.360 DEBUG: OnLoadingStateChange: loading=1, url=
+- 23:31:30.000 DEBUG: Command line string for the renderer process: "C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\phpdesktop-chrome.exe" --type=renderer --no-sandbox --primordial-pipe-token=9F5B27C60F681B8D0898696F1FBEDFD5 --lang=en-US --lang=en-US --log-file="C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\debug.log" --enable-pinch --device-scale-factor=1.25 --num-raster-threads=2 --enable-main-frame-before-activation --content-image-texture-target=0,0,3553;0,1,3553;0,2,3553;0,3,3553;0,4,3553;0,5,3553;0,6,3553;0,7,3553;0,8,3553;0,9,3553;0,10,3553;0,11,3553;0,12,3553;0,13,3553;0,14,3553;0,15,3553;1,0,3553;1,1,3553;1,2,3553;1,3,3553;1,4,3553;1,5,3553;1,6,3553;1,7,3553;1,8,3553;1,9,3553;1,10,3553;1,11,3553;1,12,3553;1,13,3553;1,14,3553;1,15,3553;2,0,3553;2,1,3553;2,2,3553;2,3,3553;2,4,3553;2,5,3553;2,6,3553;2,7,3553;2,8,3553;2,9,3553;2,10,3553;2,11,3553;2,12,3553;2,13,3553;2,14,3553;2,15,3553;3,0,3553;3,1,3553;3,2,3553;3,3,3553;3,4,3553;3,5,3553;3,6,3553;3,7,3553;3,8,3553;3,9,3553;3,10,3553;3,11,3553;3,12,3553;3,13,3553;3,14,3553;3,15,3553 --service-request-channel-token=9F5B27C60F681B8D0898696F1FBEDFD5 --renderer-client-id=3 --mojo-platform-channel-handle=2408 /prefetch:1
+[0210/233130.920:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+- 23:31:30.047 DEBUG: OnBrowserCreated()
+- 23:31:32.172 INFO: GET 200 /public/css/style.css
+- 23:31:32.203 INFO: GET 200 /
+- 23:31:32.000 DEBUG: OnContextCreated()
+- 23:31:32.469 INFO: GET 200 /public/js/app.js
+[0210/233132.952:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:31:32.485 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/
+- 23:31:37.250 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/
+- 23:31:37.969 DEBUG: OnContextCreated()
+- 23:31:37.422 INFO: GET 200 /?page=pos
+[0210/233137.965:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:31:38.547 INFO: GET 200 /public/js/pos.js
+[0210/233138.016:INFO:CONSOLE(33)] "Uncaught ReferenceError: debounce is not defined", source: http://127.0.0.1:6928/public/js/pos.js (33)
+- 23:31:38.547 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=pos
+- 23:31:43.688 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=pos
+- 23:31:43.328 DEBUG: OnContextCreated()
+- 23:31:43.782 INFO: GET 200 /?page=dashboard
+[0210/233143.257:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:31:43.797 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=dashboard
+- 23:31:48.110 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=dashboard
+- 23:31:48.734 DEBUG: OnContextCreated()
+- 23:31:48.203 INFO: GET 200 /?page=pos
+[0210/233148.678:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+[0210/233148.682:INFO:CONSOLE(33)] "Uncaught ReferenceError: debounce is not defined", source: http://127.0.0.1:6928/public/js/pos.js (33)
+- 23:31:48.219 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=pos
+[0210/233155.424:INFO:CONSOLE(418)] "Uncaught ReferenceError: openModal is not defined", source: http://127.0.0.1:6928/public/js/pos.js (418)
+[0210/233156.997:INFO:CONSOLE(476)] "Uncaught ReferenceError: openModal is not defined", source: http://127.0.0.1:6928/public/js/pos.js (476)
+- 23:32:06.063 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=pos
+- 23:32:06.703 DEBUG: OnContextCreated()
+- 23:32:06.157 INFO: GET 200 /?page=dashboard
+[0210/233206.626:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:32:06.157 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=dashboard
+- 23:32:07.250 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=dashboard
+- 23:32:07.937 DEBUG: OnContextCreated()
+- 23:32:07.391 INFO: GET 200 /?page=products
+[0210/233207.924:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:32:07.453 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=products
+- 23:32:11.407 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=products
+- 23:32:11.078 DEBUG: OnContextCreated()
+- 23:32:11.532 INFO: GET 200 /?page=suppliers
+[0210/233211.997:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:32:12.547 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=suppliers
+- 23:32:14.922 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=suppliers
+- 23:32:14.594 DEBUG: OnContextCreated()
+- 23:32:14.032 INFO: GET 200 /?page=purchases
+[0210/233214.520:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:32:14.047 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=purchases
+- 23:32:16.703 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=purchases
+- 23:32:16.406 DEBUG: OnContextCreated()
+- 23:32:16.860 INFO: GET 200 /?page=reports
+[0210/233216.349:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:32:16.891 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=reports
+[0210/233216.364:INFO:CONSOLE(103)] "Uncaught (in promise) TypeError: Cannot read property 'replace' of undefined", source: http://127.0.0.1:6928/?page=reports (103)
+- 23:32:17.594 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=reports
+- 23:32:17.312 DEBUG: OnContextCreated()
+[0210/233217.229:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:32:17.766 INFO: GET 200 /?page=sales
+- 23:32:17.782 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=sales
+- 23:32:19.563 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=sales
+- 23:32:19.219 DEBUG: OnContextCreated()
+- 23:32:19.672 INFO: GET 200 /?page=reports
+[0210/233219.152:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:32:19.688 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=reports
+[0210/233219.161:INFO:CONSOLE(103)] "Uncaught (in promise) TypeError: Cannot read property 'replace' of undefined", source: http://127.0.0.1:6928/?page=reports (103)
+- 23:32:40.907 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=reports
+- 23:32:40.562 DEBUG: OnContextCreated()
+[0210/233240.480:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:32:40.016 INFO: GET 200 /?page=sales
+- 23:32:40.016 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=sales
+- 23:32:41.953 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=sales
+- 23:32:41.625 DEBUG: OnContextCreated()
+[0210/233241.580:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:32:41.110 INFO: GET 200 /?page=reports
+- 23:32:41.125 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=reports
+[0210/233241.604:INFO:CONSOLE(103)] "Uncaught (in promise) TypeError: Cannot read property 'replace' of undefined", source: http://127.0.0.1:6928/?page=reports (103)
+[0210/233244.459:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/?page=reports (134)
+[0210/233245.205:INFO:CONSOLE(140)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/?page=reports (140)
+[0210/233245.807:INFO:CONSOLE(146)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/?page=reports (146)
+[0210/233246.420:INFO:CONSOLE(152)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/?page=reports (152)
+- 23:32:47.469 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=reports
+- 23:32:48.156 DEBUG: OnContextCreated()
+- 23:32:48.610 INFO: GET 200 /?page=dashboard
+[0210/233248.095:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:32:48.625 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=dashboard
+- 23:32:53.032 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=dashboard
+- 23:32:53.703 DEBUG: OnContextCreated()
+- 23:32:53.157 INFO: GET 200 /?page=products&action=create
+[0210/233253.623:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:32:53.188 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=products&action=create
+- 23:32:55.141 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=products&action=create
+- 23:32:55.797 DEBUG: OnContextCreated()
+- 23:32:55.235 INFO: GET 200 /?page=products
+[0210/233255.717:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:32:55.266 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=products
+- 23:32:59.563 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=products
+- 23:32:59.203 DEBUG: OnContextCreated()
+[0210/233259.136:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:32:59.657 INFO: GET 200 /?page=dashboard
+- 23:32:59.672 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=dashboard
+- 23:32:59.110 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=dashboard
+- 23:32:59.765 DEBUG: OnContextCreated()
+[0210/233259.707:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:32:59.235 INFO: GET 200 /?page=pos
+[0210/233259.720:INFO:CONSOLE(33)] "Uncaught ReferenceError: debounce is not defined", source: http://127.0.0.1:6928/public/js/pos.js (33)
+- 23:32:59.250 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=pos
+[0210/233305.579:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233305.759:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233306.156:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233306.426:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233310.325:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233310.491:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233310.658:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233310.817:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+- 23:33:16.500 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=pos
+- 23:33:17.140 DEBUG: OnContextCreated()
+- 23:33:17.578 INFO: GET 200 /?page=dashboard
+[0210/233317.056:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:33:17.594 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=dashboard
+- 23:33:18.922 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=dashboard
+- 23:33:18.578 DEBUG: OnContextCreated()
+- 23:33:18.047 INFO: GET 200 /?page=products
+[0210/233318.518:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:33:18.063 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=products
+- 23:33:25.141 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=products
+- 23:33:25.765 DEBUG: OnContextCreated()
+[0210/233325.698:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:33:25.219 INFO: GET 200 /?page=dashboard
+- 23:33:25.235 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=dashboard
+- 23:33:28.125 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=dashboard
+- 23:33:28.750 DEBUG: OnContextCreated()
+- 23:33:28.203 INFO: GET 200 /?page=pos
+[0210/233328.686:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+[0210/233328.688:INFO:CONSOLE(33)] "Uncaught ReferenceError: debounce is not defined", source: http://127.0.0.1:6928/public/js/pos.js (33)
+- 23:33:28.235 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=pos
+[0210/233334.651:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233335.475:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233335.694:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233335.908:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233337.748:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233338.234:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233338.263:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233338.295:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233346.540:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233346.721:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233346.722:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233346.722:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233347.098:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233347.588:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233347.614:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233347.646:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+- 23:34:59.110 DEBUG: F5 pressed, reloading page
+- 23:34:59.110 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=pos
+- 23:34:59.781 DEBUG: OnContextCreated()
+- 23:34:59.235 INFO: GET 200 /public/css/style.css
+- 23:34:59.250 INFO: GET 200 /?page=pos
+- 23:34:59.266 INFO: GET 200 /public/js/app.js
+- 23:34:59.266 INFO: GET 200 /public/js/pos.js
+[0210/233459.736:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+[0210/233459.738:INFO:CONSOLE(33)] "Uncaught ReferenceError: debounce is not defined", source: http://127.0.0.1:6928/public/js/pos.js (33)
+- 23:34:59.266 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=pos
+[0210/233502.097:INFO:CONSOLE(476)] "Uncaught ReferenceError: openModal is not defined", source: http://127.0.0.1:6928/public/js/pos.js (476)
+[0210/233503.468:INFO:CONSOLE(418)] "Uncaught ReferenceError: openModal is not defined", source: http://127.0.0.1:6928/public/js/pos.js (418)
+- 23:35:07.750 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=pos
+- 23:35:07.375 DEBUG: OnContextCreated()
+- 23:35:07.828 INFO: GET 304 /public/css/style.css
+- 23:35:07.828 INFO: GET 200 /?page=dashboard
+[0210/233507.306:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:35:07.844 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=dashboard
+- 23:35:10.344 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=dashboard
+- 23:35:10.984 DEBUG: OnContextCreated()
+- 23:35:10.422 INFO: GET 304 /public/css/style.css
+- 23:35:10.422 INFO: GET 200 /?page=pos
+[0210/233510.898:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+[0210/233510.906:INFO:CONSOLE(33)] "Uncaught ReferenceError: debounce is not defined", source: http://127.0.0.1:6928/public/js/pos.js (33)
+- 23:35:10.438 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=pos
+- 23:35:12.125 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=pos
+- 23:35:12.750 DEBUG: OnContextCreated()
+- 23:35:12.188 INFO: GET 304 /public/css/style.css
+- 23:35:12.188 INFO: GET 200 /?page=dashboard
+[0210/233512.670:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:35:12.203 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=dashboard
+- 23:35:13.297 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=dashboard
+- 23:35:13.937 DEBUG: OnContextCreated()
+- 23:35:13.375 INFO: GET 304 /public/css/style.css
+- 23:35:13.375 INFO: GET 200 /?page=products
+[0210/233513.856:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:35:13.391 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=products
+- 23:35:15.547 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=products
+- 23:35:15.172 DEBUG: OnContextCreated()
+- 23:35:15.610 INFO: GET 304 /public/css/style.css
+- 23:35:15.625 INFO: GET 200 /?page=suppliers
+[0210/233515.093:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:35:15.625 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=suppliers
+- 23:35:16.625 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=suppliers
+- 23:35:16.297 DEBUG: OnContextCreated()
+- 23:35:16.750 INFO: GET 304 /public/css/style.css
+- 23:35:16.782 INFO: GET 200 /?page=inventory
+[0210/233516.267:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:35:16.797 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=inventory
+- 23:35:17.750 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=inventory
+- 23:35:17.375 DEBUG: OnContextCreated()
+- 23:35:17.813 INFO: GET 304 /public/css/style.css
+- 23:35:17.828 INFO: GET 200 /?page=reports
+[0210/233517.292:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:35:17.828 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=reports
+[0210/233517.300:INFO:CONSOLE(103)] "Uncaught (in promise) TypeError: Cannot read property 'replace' of undefined", source: http://127.0.0.1:6928/?page=reports (103)
+- 23:35:19.875 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=reports
+- 23:35:19.515 DEBUG: OnContextCreated()
+- 23:35:19.969 INFO: GET 304 /public/css/style.css
+[0210/233519.437:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:35:19.969 INFO: GET 200 /?page=sales
+- 23:35:19.969 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=sales
+- 23:35:20.157 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=sales
+- 23:35:20.781 DEBUG: OnContextCreated()
+- 23:35:20.219 INFO: GET 304 /public/css/style.css
+[0210/233520.708:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:35:20.235 INFO: GET 200 /?page=dashboard
+- 23:35:20.250 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=dashboard
+- 23:37:01.125 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=dashboard
+- 23:37:01.812 DEBUG: OnContextCreated()
+- 23:37:01.250 INFO: GET 304 /public/css/style.css
+[0210/233701.730:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:37:01.250 INFO: GET 200 /?page=pos
+[0210/233701.740:INFO:CONSOLE(33)] "Uncaught ReferenceError: debounce is not defined", source: http://127.0.0.1:6928/public/js/pos.js (33)
+- 23:37:01.282 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=pos
+- 23:37:03.328 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=pos
+- 23:37:03.953 DEBUG: OnContextCreated()
+- 23:37:03.407 INFO: GET 304 /public/css/style.css
+- 23:37:03.407 INFO: GET 200 /?page=dashboard
+[0210/233703.882:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:37:03.422 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=dashboard
+- 23:37:07.875 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=dashboard
+- 23:37:07.515 DEBUG: OnContextCreated()
+[0210/233707.436:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:37:07.969 INFO: GET 304 /public/css/style.css
+- 23:37:07.969 INFO: GET 200 /?page=purchases
+- 23:37:07.985 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=purchases
+- 23:37:08.375 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=purchases
+- 23:37:08.015 DEBUG: OnContextCreated()
+- 23:37:08.469 INFO: GET 304 /public/css/style.css
+- 23:37:08.485 INFO: GET 200 /?page=inventory
+[0210/233708.959:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:37:08.500 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=inventory
+- 23:37:09.391 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=inventory
+- 23:37:09.047 DEBUG: OnContextCreated()
+[0210/233709.962:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:37:09.485 INFO: GET 304 /public/css/style.css
+- 23:37:10.532 INFO: GET 200 /?page=purchases
+- 23:37:10.532 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=purchases
+- 23:37:11.782 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=purchases
+- 23:37:11.422 DEBUG: OnContextCreated()
+- 23:37:11.860 INFO: GET 304 /public/css/style.css
+[0210/233711.348:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:37:11.875 INFO: GET 200 /?page=suppliers
+- 23:37:11.891 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=suppliers
+- 23:37:12.407 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=suppliers
+- 23:37:12.047 DEBUG: OnContextCreated()
+- 23:37:12.500 INFO: GET 304 /public/css/style.css
+[0210/233712.969:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:37:12.516 INFO: GET 200 /?page=suppliers&action=create
+- 23:37:12.516 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=suppliers&action=create
+- 23:37:15.157 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=suppliers&action=create
+- 23:37:15.812 DEBUG: OnContextCreated()
+- 23:37:15.250 INFO: GET 304 /public/css/style.css
+- 23:37:15.266 INFO: GET 200 /?page=suppliers
+[0210/233715.746:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:37:15.282 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=suppliers
+- 23:37:17.782 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=suppliers
+- 23:37:17.437 DEBUG: OnContextCreated()
+- 23:37:17.875 INFO: GET 304 /public/css/style.css
+- 23:37:17.907 INFO: GET 200 /?page=products
+[0210/233717.385:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:37:17.922 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=products
+- 23:37:21.375 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=products
+- 23:37:21.015 DEBUG: OnContextCreated()
+- 23:37:21.453 INFO: GET 304 /public/css/style.css
+- 23:37:21.500 INFO: GET 200 /?page=inventory
+[0210/233721.966:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:37:21.500 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=inventory
+- 23:37:22.500 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=inventory
+- 23:37:23.156 DEBUG: OnContextCreated()
+- 23:37:23.594 INFO: GET 304 /public/css/style.css
+[0210/233723.070:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:37:23.610 INFO: GET 200 /?page=purchases
+- 23:37:23.610 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=purchases
+- 23:37:24.453 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=purchases
+- 23:37:24.078 DEBUG: OnContextCreated()
+- 23:37:24.532 INFO: GET 304 /public/css/style.css
+- 23:37:25.532 INFO: GET 200 /?page=purchases&action=create
+[0210/233725.012:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:37:25.563 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=purchases&action=create
+- 23:37:41.953 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=purchases&action=create
+- 23:37:41.609 DEBUG: OnContextCreated()
+- 23:37:41.047 INFO: GET 304 /public/css/style.css
+- 23:37:41.063 INFO: GET 200 /?page=products
+[0210/233741.541:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:37:41.078 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=products
+- 23:37:42.719 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=products
+- 23:37:42.359 DEBUG: OnContextCreated()
+- 23:37:42.813 INFO: GET 304 /public/css/style.css
+- 23:37:42.813 INFO: GET 200 /?page=pos
+[0210/233742.309:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+[0210/233742.311:INFO:CONSOLE(33)] "Uncaught ReferenceError: debounce is not defined", source: http://127.0.0.1:6928/public/js/pos.js (33)
+- 23:37:42.844 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=pos
+[0210/233753.506:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233753.737:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233754.181:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233754.406:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233754.416:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233754.940:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233755.096:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233755.809:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233800.639:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233801.896:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233807.272:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233814.263:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233814.508:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233814.693:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233815.110:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233818.272:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233818.708:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233818.919:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233819.247:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233822.385:INFO:CONSOLE(476)] "Uncaught ReferenceError: openModal is not defined", source: http://127.0.0.1:6928/public/js/pos.js (476)
+- 23:38:30.922 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=pos
+- 23:38:30.547 DEBUG: OnContextCreated()
+- 23:38:30.000 INFO: GET 304 /public/css/style.css
+- 23:38:30.000 INFO: GET 200 /?page=dashboard
+- 23:38:30.016 INFO: GET 304 /public/js/app.js
+[0210/233830.479:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:38:30.016 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=dashboard
+- 23:38:38.328 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=dashboard
+- 23:38:38.969 DEBUG: OnContextCreated()
+- 23:38:38.407 INFO: GET 304 /public/css/style.css
+- 23:38:38.438 INFO: GET 200 /?page=products
+- 23:38:38.438 INFO: GET 304 /public/js/app.js
+[0210/233838.908:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:38:38.438 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=products
+- 23:38:49.922 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=products
+- 23:38:49.562 DEBUG: OnContextCreated()
+- 23:38:49.000 INFO: GET 304 /public/css/style.css
+- 23:38:49.032 INFO: GET 200 /?page=pos
+[0210/233849.511:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:38:49.047 INFO: GET 304 /public/js/app.js
+- 23:38:49.047 INFO: GET 304 /public/js/pos.js
+[0210/233849.517:INFO:CONSOLE(33)] "Uncaught ReferenceError: debounce is not defined", source: http://127.0.0.1:6928/public/js/pos.js (33)
+- 23:38:49.047 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=pos
+[0210/233853.491:INFO:CONSOLE(82)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (82)
+[0210/233856.556:INFO:CONSOLE(82)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (82)
+[0210/233859.480:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233859.749:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233900.333:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/233904.724:INFO:CONSOLE(418)] "Uncaught ReferenceError: openModal is not defined", source: http://127.0.0.1:6928/public/js/pos.js (418)
+- 23:39:30.235 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=pos
+- 23:39:30.890 DEBUG: OnContextCreated()
+- 23:39:30.328 INFO: GET 304 /public/css/style.css
+- 23:39:30.360 INFO: GET 200 /?page=dashboard
+[0210/233930.842:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:39:30.375 INFO: GET 304 /public/js/app.js
+- 23:39:30.375 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=dashboard
+- 23:39:35.938 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=dashboard
+- 23:39:35.594 DEBUG: OnContextCreated()
+- 23:39:35.032 INFO: GET 304 /public/css/style.css
+- 23:39:35.032 INFO: GET 304 /public/js/app.js
+[0210/233935.507:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:39:35.047 INFO: GET 200 /?page=purchases
+- 23:39:35.063 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=purchases
+- 23:39:36.844 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=purchases
+- 23:39:36.484 DEBUG: OnContextCreated()
+- 23:39:36.922 INFO: GET 304 /public/css/style.css
+- 23:39:36.969 INFO: GET 304 /public/js/app.js
+- 23:39:36.969 INFO: GET 200 /?page=suppliers
+[0210/233936.438:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:39:36.969 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=suppliers
+- 23:43:07.766 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=suppliers
+- 23:43:07.469 DEBUG: OnContextCreated()
+- 23:43:07.907 INFO: GET 304 /public/css/style.css
+- 23:43:07.922 INFO: GET 200 /?page=dashboard
+- 23:43:07.922 INFO: GET 304 /public/js/app.js
+[0210/234307.400:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:43:07.938 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=dashboard
+- 23:43:18.641 DEBUG: F5 pressed, reloading page
+- 23:43:18.641 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=dashboard
+- 23:43:18.312 DEBUG: OnContextCreated()
+- 23:43:18.750 INFO: GET 200 /public/css/style.css
+[0210/234318.252:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:43:18.782 INFO: GET 200 /public/js/app.js
+- 23:43:18.782 INFO: GET 200 /?page=dashboard
+- 23:43:18.797 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=dashboard
+- 23:43:18.813 DEBUG: F5 pressed, reloading page
+- 23:43:18.813 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=dashboard
+- 23:43:18.469 DEBUG: OnContextCreated()
+- 23:43:18.907 INFO: GET 200 /public/css/style.css
+[0210/234318.405:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:43:18.922 INFO: GET 200 /?page=dashboard
+- 23:43:18.938 INFO: GET 200 /public/js/app.js
+- 23:43:18.953 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=dashboard
+- 23:43:18.969 DEBUG: F5 pressed, reloading page
+- 23:43:18.969 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=dashboard
+- 23:43:18.625 DEBUG: OnContextCreated()
+- 23:43:18.063 INFO: GET 200 /public/css/style.css
+[0210/234318.564:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:43:18.094 INFO: GET 200 /public/js/app.js
+- 23:43:18.094 INFO: GET 200 /?page=dashboard
+- 23:43:18.110 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=dashboard
+- 23:43:18.125 DEBUG: F5 pressed, reloading page
+- 23:43:18.125 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=dashboard
+- 23:43:18.765 DEBUG: OnContextCreated()
+- 23:43:18.219 INFO: GET 200 /public/css/style.css
+- 23:43:18.250 DEBUG: F5 pressed, reloading page
+- 23:43:18.250 INFO: GET 200 /?page=dashboard
+- 23:43:18.890 DEBUG: OnContextCreated()
+- 23:43:18.344 INFO: GET 200 /public/css/style.css
+[0210/234318.844:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:43:18.375 INFO: GET 200 /?page=dashboard
+- 23:43:18.375 INFO: GET 200 /public/js/app.js
+- 23:43:18.375 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=dashboard
+- 23:43:20.922 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=dashboard
+- 23:43:20.594 DEBUG: OnContextCreated()
+[0210/234320.584:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:43:20.110 INFO: GET 200 /public/js/pos.js
+- 23:43:20.110 INFO: GET 200 /?page=pos
+[0210/234320.616:INFO:CONSOLE(33)] "Uncaught ReferenceError: debounce is not defined", source: http://127.0.0.1:6928/public/js/pos.js (33)
+- 23:43:20.157 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=pos
+[0210/234320.950:INFO:CONSOLE(418)] "Uncaught ReferenceError: openModal is not defined", source: http://127.0.0.1:6928/public/js/pos.js (418)
+[0210/234323.660:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/234323.860:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/234324.085:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/234324.310:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/234331.189:INFO:CONSOLE(476)] "Uncaught ReferenceError: openModal is not defined", source: http://127.0.0.1:6928/public/js/pos.js (476)
+[0210/234334.153:INFO:CONSOLE(418)] "Uncaught ReferenceError: openModal is not defined", source: http://127.0.0.1:6928/public/js/pos.js (418)
+[0210/234335.012:INFO:CONSOLE(393)] "Uncaught ReferenceError: openModal is not defined", source: http://127.0.0.1:6928/public/js/pos.js (393)
+- 23:43:39.985 DEBUG: F5 pressed, reloading page
+- 23:43:39.985 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=pos
+- 23:43:39.625 DEBUG: OnContextCreated()
+- 23:43:39.063 INFO: GET 200 /public/css/style.css
+- 23:43:39.094 INFO: GET 200 /?page=pos
+[0210/234339.569:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:43:39.094 INFO: GET 200 /public/js/pos.js
+- 23:43:39.094 INFO: GET 200 /public/js/app.js
+[0210/234339.572:INFO:CONSOLE(33)] "Uncaught ReferenceError: debounce is not defined", source: http://127.0.0.1:6928/public/js/pos.js (33)
+- 23:43:39.110 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=pos
+- 23:43:39.157 DEBUG: F5 pressed, reloading page
+- 23:43:39.157 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=pos
+- 23:43:39.812 DEBUG: OnContextCreated()
+- 23:43:39.250 INFO: GET 200 /public/css/style.css
+- 23:43:39.266 INFO: GET 200 /?page=pos
+[0210/234339.752:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+[0210/234339.755:INFO:CONSOLE(33)] "Uncaught ReferenceError: debounce is not defined", source: http://127.0.0.1:6928/public/js/pos.js (33)
+- 23:43:39.282 INFO: GET 200 /public/js/app.js
+- 23:43:39.282 INFO: GET 200 /public/js/pos.js
+- 23:43:39.297 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=pos
+- 23:43:39.328 DEBUG: F5 pressed, reloading page
+- 23:43:39.328 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=pos
+- 23:43:39.984 DEBUG: OnContextCreated()
+- 23:43:39.422 INFO: GET 200 /public/css/style.css
+[0210/234339.909:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:43:39.438 INFO: GET 200 /?page=pos
+- 23:43:39.438 INFO: GET 200 /public/js/app.js
+- 23:43:39.438 INFO: GET 200 /public/js/pos.js
+[0210/234339.920:INFO:CONSOLE(33)] "Uncaught ReferenceError: debounce is not defined", source: http://127.0.0.1:6928/public/js/pos.js (33)
+- 23:43:39.453 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=pos
+- 23:43:39.485 DEBUG: F5 pressed, reloading page
+- 23:43:39.485 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=pos
+- 23:43:40.140 DEBUG: OnContextCreated()
+- 23:43:40.578 INFO: GET 200 /public/css/style.css
+[0210/234340.072:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:43:40.594 INFO: GET 200 /?page=pos
+- 23:43:40.594 INFO: GET 200 /public/js/pos.js
+- 23:43:40.594 INFO: GET 200 /public/js/app.js
+- 23:43:40.625 DEBUG: F5 pressed, reloading page
+[0210/234340.109:INFO:CONSOLE(33)] "Uncaught ReferenceError: debounce is not defined", source: http://127.0.0.1:6928/public/js/pos.js (33)
+- 23:43:40.641 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=pos
+- 23:43:40.641 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=pos
+- 23:43:40.312 DEBUG: OnContextCreated()
+- 23:43:40.750 INFO: GET 200 /public/css/style.css
+- 23:43:40.782 DEBUG: F5 pressed, reloading page
+- 23:43:40.797 INFO: GET 200 /?page=pos
+- 23:43:40.437 DEBUG: OnContextCreated()
+- 23:43:40.891 INFO: GET 200 /public/css/style.css
+[0210/234340.400:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:43:40.922 INFO: GET 200 /?page=pos
+- 23:43:40.922 INFO: GET 200 /public/js/app.js
+- 23:43:40.922 INFO: GET 200 /public/js/pos.js
+[0210/234340.423:INFO:CONSOLE(33)] "Uncaught ReferenceError: debounce is not defined", source: http://127.0.0.1:6928/public/js/pos.js (33)
+- 23:43:40.953 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=pos
+[0210/234345.148:INFO:CONSOLE(393)] "Uncaught ReferenceError: openModal is not defined", source: http://127.0.0.1:6928/public/js/pos.js (393)
+[0210/234345.996:INFO:CONSOLE(418)] "Uncaught ReferenceError: openModal is not defined", source: http://127.0.0.1:6928/public/js/pos.js (418)
+[0210/234352.343:INFO:CONSOLE(476)] "Uncaught ReferenceError: openModal is not defined", source: http://127.0.0.1:6928/public/js/pos.js (476)
+- 23:43:53.250 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=pos
+- 23:43:53.890 DEBUG: OnContextCreated()
+- 23:43:53.344 INFO: GET 200 /?page=dashboard
+[0210/234353.814:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:43:53.344 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=dashboard
+- 23:43:55.610 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=dashboard
+- 23:43:55.265 DEBUG: OnContextCreated()
+[0210/234355.193:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:43:55.719 INFO: GET 200 /?page=pos
+[0210/234355.200:INFO:CONSOLE(33)] "Uncaught ReferenceError: debounce is not defined", source: http://127.0.0.1:6928/public/js/pos.js (33)
+- 23:43:55.735 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=pos
+- 23:43:59.563 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=pos
+- 23:43:59.219 DEBUG: OnContextCreated()
+- 23:43:59.672 INFO: GET 200 /?page=dashboard
+[0210/234359.151:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:43:59.688 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=dashboard
+- 23:44:01.219 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=dashboard
+- 23:44:01.875 DEBUG: OnContextCreated()
+- 23:44:01.344 INFO: GET 200 /?page=products
+[0210/234401.814:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:44:01.360 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=products
+- 23:44:11.157 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=products
+- 23:44:11.781 DEBUG: OnContextCreated()
+- 23:44:11.250 INFO: GET 200 /?page=pos
+[0210/234411.728:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:44:11.266 INFO: GET 304 /public/js/pos.js
+[0210/234411.731:INFO:CONSOLE(33)] "Uncaught ReferenceError: debounce is not defined", source: http://127.0.0.1:6928/public/js/pos.js (33)
+- 23:44:11.266 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=pos
+[0210/234416.056:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/234427.789:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/234428.520:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/234428.662:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/234429.359:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/234430.017:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/234430.413:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+- 23:44:34.391 DEBUG: F5 pressed, reloading page
+- 23:44:34.391 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=pos
+- 23:44:34.031 DEBUG: OnContextCreated()
+- 23:44:34.469 INFO: GET 200 /public/css/style.css
+- 23:44:34.516 INFO: GET 200 /?page=pos
+- 23:44:34.516 INFO: GET 200 /public/js/app.js
+- 23:44:34.516 INFO: GET 200 /public/js/pos.js
+[0210/234434.988:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+[0210/234434.989:INFO:CONSOLE(33)] "Uncaught ReferenceError: debounce is not defined", source: http://127.0.0.1:6928/public/js/pos.js (33)
+- 23:44:34.532 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=pos
+- 23:44:35.578 DEBUG: F5 pressed, reloading page
+- 23:44:35.578 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=pos
+- 23:44:35.234 DEBUG: OnContextCreated()
+- 23:44:35.672 INFO: GET 200 /public/css/style.css
+- 23:44:35.703 INFO: GET 200 /?page=pos
+[0210/234435.187:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:44:35.703 INFO: GET 200 /public/js/pos.js
+- 23:44:35.703 INFO: GET 200 /public/js/app.js
+[0210/234435.189:INFO:CONSOLE(33)] "Uncaught ReferenceError: debounce is not defined", source: http://127.0.0.1:6928/public/js/pos.js (33)
+- 23:44:35.735 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=pos
+- 23:44:35.766 DEBUG: F5 pressed, reloading page
+- 23:44:35.766 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=pos
+- 23:44:35.422 DEBUG: OnContextCreated()
+- 23:44:35.860 INFO: GET 200 /public/css/style.css
+- 23:44:35.907 INFO: GET 200 /?page=pos
+- 23:44:35.907 INFO: GET 200 /public/js/app.js
+- 23:44:35.907 INFO: GET 200 /public/js/pos.js
+[0210/234435.385:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+[0210/234435.387:INFO:CONSOLE(33)] "Uncaught ReferenceError: debounce is not defined", source: http://127.0.0.1:6928/public/js/pos.js (33)
+- 23:44:35.922 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=pos
+- 23:44:35.969 DEBUG: F5 pressed, reloading page
+- 23:44:35.969 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=pos
+- 23:44:35.625 DEBUG: OnContextCreated()
+- 23:44:35.063 INFO: GET 200 /public/css/style.css
+- 23:44:35.110 INFO: GET 200 /?page=pos
+[0210/234435.596:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+[0210/234435.597:INFO:CONSOLE(33)] "Uncaught ReferenceError: debounce is not defined", source: http://127.0.0.1:6928/public/js/pos.js (33)
+- 23:44:35.125 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=pos
+- 23:44:35.125 INFO: GET 200 /public/js/pos.js
+- 23:44:35.125 INFO: GET 200 /public/js/app.js
+- 23:44:35.219 DEBUG: F5 pressed, reloading page
+- 23:44:35.219 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=pos
+- 23:44:35.859 DEBUG: OnContextCreated()
+- 23:44:35.313 INFO: GET 200 /public/css/style.css
+- 23:44:35.344 INFO: GET 200 /?page=pos
+[0210/234435.814:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:44:35.344 INFO: GET 200 /public/js/app.js
+- 23:44:35.344 INFO: GET 200 /public/js/pos.js
+[0210/234435.826:INFO:CONSOLE(33)] "Uncaught ReferenceError: debounce is not defined", source: http://127.0.0.1:6928/public/js/pos.js (33)
+- 23:44:35.360 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=pos
+- 23:44:36.703 DEBUG: F5 pressed, reloading page
+- 23:44:36.750 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=pos
+- 23:44:36.750 DEBUG: F5 pressed, reloading page
+- 23:44:36.750 DEBUG: OnLoadError, errorCode=-3, failedUrl=http://127.0.0.1:6928/?page=pos
+- 23:44:36.750 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=pos
+- 23:44:36.750 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=pos
+- 23:44:36.782 DEBUG: F5 pressed, reloading page
+- 23:44:36.797 DEBUG: OnLoadError, errorCode=-3, failedUrl=http://127.0.0.1:6928/?page=pos
+- 23:44:36.797 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=pos
+- 23:44:36.813 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=pos
+- 23:44:36.813 DEBUG: F5 pressed, reloading page
+- 23:44:36.813 DEBUG: OnLoadError, errorCode=-3, failedUrl=http://127.0.0.1:6928/?page=pos
+- 23:44:36.813 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=pos
+- 23:44:36.813 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=pos
+- 23:44:36.828 DEBUG: F5 pressed, reloading page
+- 23:44:36.828 DEBUG: OnLoadError, errorCode=-3, failedUrl=http://127.0.0.1:6928/?page=pos
+- 23:44:36.828 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=pos
+- 23:44:36.828 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=pos
+- 23:44:36.860 DEBUG: F5 pressed, reloading page
+- 23:44:36.860 DEBUG: OnLoadError, errorCode=-3, failedUrl=http://127.0.0.1:6928/?page=pos
+- 23:44:36.860 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=pos
+- 23:44:36.860 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=pos
+- 23:44:36.891 DEBUG: F5 pressed, reloading page
+- 23:44:36.891 DEBUG: OnLoadError, errorCode=-3, failedUrl=http://127.0.0.1:6928/?page=pos
+- 23:44:36.891 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=pos
+- 23:44:36.891 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=pos
+- 23:44:36.907 DEBUG: F5 pressed, reloading page
+- 23:44:36.922 DEBUG: OnLoadError, errorCode=-3, failedUrl=http://127.0.0.1:6928/?page=pos
+- 23:44:36.922 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=pos
+- 23:44:36.922 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=pos
+- 23:44:36.953 DEBUG: F5 pressed, reloading page
+- 23:44:36.016 DEBUG: OnLoadError, errorCode=-3, failedUrl=http://127.0.0.1:6928/?page=pos
+- 23:44:36.016 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=pos
+- 23:44:36.016 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=pos
+- 23:44:36.016 DEBUG: F5 pressed, reloading page
+- 23:44:36.016 DEBUG: OnLoadError, errorCode=-3, failedUrl=http://127.0.0.1:6928/?page=pos
+- 23:44:36.016 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=pos
+- 23:44:36.032 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=pos
+- 23:44:36.078 INFO: GET 200 /?page=pos
+- 23:44:36.141 INFO: GET 200 /?page=pos
+- 23:44:36.125 INFO: GET 200 /?page=pos
+- 23:44:36.313 INFO: GET 200 /?page=pos
+- 23:44:36.313 INFO: GET 200 /?page=pos
+- 23:44:36.328 INFO: GET 200 /?page=pos
+- 23:44:36.344 INFO: GET 200 /?page=pos
+- 23:44:36.922 DEBUG: OnContextCreated()
+- 23:44:36.360 INFO: GET 200 /public/css/style.css
+- 23:44:36.407 INFO: GET 200 /?page=pos
+[0210/234436.902:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:44:36.422 INFO: GET 200 /?page=pos
+[0210/234436.913:INFO:CONSOLE(33)] "Uncaught ReferenceError: debounce is not defined", source: http://127.0.0.1:6928/public/js/pos.js (33)
+- 23:44:36.438 INFO: GET 200 /public/js/app.js
+- 23:44:36.438 INFO: GET 200 /public/js/pos.js
+- 23:44:36.453 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=pos
+- 23:44:37.532 INFO: GET 200 /?page=pos
+- 23:44:46.516 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=pos
+- 23:44:47.187 DEBUG: OnContextCreated()
+- 23:44:47.641 INFO: GET 200 /?page=dashboard
+[0210/234447.127:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:44:47.657 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=dashboard
+- 23:44:51.172 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=dashboard
+- 23:44:51.828 DEBUG: OnContextCreated()
+- 23:44:51.282 INFO: GET 200 /?page=products
+[0210/234451.750:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:44:51.282 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=products
+- 23:44:53.407 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=products
+- 23:44:53.078 DEBUG: OnContextCreated()
+- 23:44:54.547 INFO: GET 200 /?page=products&action=create
+[0210/234454.022:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:44:54.563 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=products&action=create
+- 23:45:17.547 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=products&action=create
+- 23:45:17.203 DEBUG: OnContextCreated()
+- 23:45:17.657 INFO: GET 200 /?page=products
+[0210/234517.128:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:45:17.672 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=products
+- 23:47:53.735 DEBUG: F5 pressed, reloading page
+- 23:47:53.735 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=products
+- 23:47:53.406 DEBUG: OnContextCreated()
+- 23:47:53.844 INFO: GET 200 /public/css/style.css
+- 23:47:53.875 INFO: GET 200 /?page=products
+- 23:47:53.875 INFO: GET 200 /public/js/app.js
+- 23:47:53.891 DEBUG: F5 pressed, reloading page
+[0210/234753.356:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:47:53.985 DEBUG: OnLoadError, errorCode=-3, failedUrl=http://127.0.0.1:6928/?page=products
+- 23:47:53.547 DEBUG: OnContextCreated()
+- 23:47:53.000 INFO: GET 200 /public/css/style.css
+[0210/234753.494:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:47:53.016 INFO: GET 200 /?page=products
+- 23:47:53.016 INFO: GET 200 /public/js/app.js
+- 23:47:53.032 DEBUG: F5 pressed, reloading page
+- 23:47:53.047 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=products
+- 23:47:53.047 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=products
+- 23:47:53.687 DEBUG: OnContextCreated()
+- 23:47:53.125 INFO: GET 200 /public/css/style.css
+- 23:47:53.141 INFO: GET 200 /?page=products
+- 23:47:53.157 INFO: GET 200 /public/js/app.js
+[0210/234753.624:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:47:53.157 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=products
+- 23:47:53.188 DEBUG: F5 pressed, reloading page
+- 23:47:53.188 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=products
+- 23:47:53.828 DEBUG: OnContextCreated()
+- 23:47:53.266 INFO: GET 200 /public/css/style.css
+- 23:47:53.297 INFO: GET 200 /?page=products
+[0210/234753.774:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:47:53.297 INFO: GET 200 /public/js/app.js
+- 23:47:53.313 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=products
+- 23:47:53.344 DEBUG: F5 pressed, reloading page
+- 23:47:53.344 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=products
+- 23:47:53.984 DEBUG: OnContextCreated()
+- 23:47:53.422 INFO: GET 200 /public/css/style.css
+- 23:47:53.438 INFO: GET 200 /?page=products
+- 23:47:53.453 INFO: GET 200 /public/js/app.js
+[0210/234753.922:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:47:53.453 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=products
+- 23:47:55.297 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=products
+- 23:47:55.953 DEBUG: OnContextCreated()
+- 23:47:55.422 INFO: GET 200 /?page=pos
+[0210/234755.897:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:47:55.422 INFO: GET 304 /public/js/pos.js
+[0210/234755.906:INFO:CONSOLE(33)] "Uncaught ReferenceError: debounce is not defined", source: http://127.0.0.1:6928/public/js/pos.js (33)
+- 23:47:55.438 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=pos
+[0210/234759.200:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/234759.380:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/234759.625:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+- 23:48:02.282 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=pos
+- 23:48:02.953 DEBUG: OnContextCreated()
+[0210/234802.877:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:48:02.407 INFO: GET 200 /?page=dashboard
+- 23:48:02.422 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=dashboard
+- 23:48:04.719 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=dashboard
+- 23:48:04.344 DEBUG: OnContextCreated()
+- 23:48:04.813 INFO: GET 200 /?page=products
+[0210/234804.292:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:48:04.844 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=products
+- 23:48:06.250 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=products
+- 23:48:06.875 DEBUG: OnContextCreated()
+- 23:48:06.328 INFO: GET 200 /?page=products&search=001&category=&type=
+[0210/234806.795:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:48:06.328 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=products&search=001&category=&type=
+- 23:49:42.594 DEBUG: F5 pressed, reloading page
+- 23:49:42.610 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=products&search=001&category=&type=
+- 23:49:42.265 DEBUG: OnContextCreated()
+- 23:49:42.719 INFO: GET 200 /public/css/style.css
+- 23:49:42.735 INFO: GET 200 /?page=products&search=001&category=&type=
+- 23:49:42.750 INFO: GET 200 /public/js/app.js
+[0210/234942.220:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:49:42.750 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=products&search=001&category=&type=
+- 23:49:42.797 DEBUG: F5 pressed, reloading page
+- 23:49:42.797 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=products&search=001&category=&type=
+- 23:49:42.453 DEBUG: OnContextCreated()
+- 23:49:42.891 INFO: GET 200 /public/css/style.css
+- 23:49:42.922 INFO: GET 200 /?page=products&search=001&category=&type=
+[0210/234942.403:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:49:42.922 INFO: GET 200 /public/js/app.js
+- 23:49:42.938 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=products&search=001&category=&type=
+- 23:49:42.953 DEBUG: F5 pressed, reloading page
+- 23:49:42.953 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=products&search=001&category=&type=
+- 23:49:42.594 DEBUG: OnContextCreated()
+- 23:49:42.032 INFO: GET 200 /public/css/style.css
+- 23:49:42.078 INFO: GET 200 /?page=products&search=001&category=&type=
+- 23:49:42.078 INFO: GET 200 /public/js/app.js
+[0210/234942.546:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:49:42.078 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=products&search=001&category=&type=
+- 23:49:44.032 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=products&search=001&category=&type=
+- 23:49:44.703 DEBUG: OnContextCreated()
+- 23:49:44.172 INFO: GET 200 /?page=pos
+- 23:49:44.172 INFO: GET 304 /public/js/pos.js
+[0210/234944.645:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+[0210/234944.647:INFO:CONSOLE(33)] "Uncaught ReferenceError: debounce is not defined", source: http://127.0.0.1:6928/public/js/pos.js (33)
+- 23:49:44.188 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=pos
+[0210/234947.946:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/234948.106:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+[0210/234948.354:INFO:CONSOLE(134)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:6928/public/js/pos.js (134)
+- 23:52:34.688 DEBUG: F5 pressed, reloading page
+- 23:52:34.688 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=pos
+- 23:52:34.359 DEBUG: OnContextCreated()
+- 23:52:34.797 INFO: GET 200 /public/css/style.css?v=1770760354
+- 23:52:34.844 INFO: GET 200 /?page=pos
+[0210/235234.313:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+- 23:52:34.844 INFO: GET 200 /public/js/app.js
+- 23:52:34.844 INFO: GET 200 /public/js/pos.js
+[0210/235236.770:INFO:CONSOLE(84)] "ReferenceError: debounce is not defined", source: http://127.0.0.1:6928/public/js/pos.js (84)
+- 23:52:36.297 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=pos
+- 23:52:38.063 DEBUG: F5 pressed, reloading page
+- 23:52:38.063 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:6928/?page=pos
+- 23:52:38.687 DEBUG: OnContextCreated()
+- 23:52:38.141 INFO: GET 200 /public/css/style.css?v=1770760358
+- 23:52:38.172 INFO: GET 200 /?page=pos
+- 23:52:38.188 INFO: GET 200 /public/js/app.js
+- 23:52:38.188 INFO: GET 200 /public/js/pos.js
+[0210/235238.657:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:6928/public/js/app.js (29)
+[0210/235240.658:INFO:CONSOLE(84)] "ReferenceError: debounce is not defined", source: http://127.0.0.1:6928/public/js/pos.js (84)
+- 23:52:40.188 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:6928/?page=pos
+- 23:52:41.938 DEBUG: WM_DESTROY
+- 23:52:41.953 DEBUG: RemoveBrowserWindow(): hwnd = 1379458
+- 23:52:41.953 INFO: Stopping Mongoose web server
+- 23:52:41.953 DEBUG: Mongoose webserver stopped immediately
+- 23:52:41.969 DEBUG: OnBeforeClose() hwnd=1117202
+- 23:52:41.969 DEBUG: RemoveBrowserWindow(): hwnd = 1117202
+- 23:52:41.969 DEBUG: GetBrowserWindow(): not found, hwnd = 1117202
+- 23:52:41.969 WARNING: RemoveBrowserWindow() failed: GetBrowserWindow() failed
+- 23:52:41.969 DEBUG: Calling CefQuitMessageLoop()
+- 23:52:41.094 INFO: Ended application
+- 23:52:41.110 INFO: --------------------------------------------------------
+- 23:52:50.110 INFO: --------------------------------------------------------
+- 23:52:50.110 INFO: Started application
+- 23:52:50.125 INFO: Logging to: C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\debug.log
+- 23:52:50.125 INFO: Log level = DEBUG4
+- 23:52:50.125 INFO: Starting Mongoose 3.9c web server
+- 23:52:50.125 INFO: WWW directory: C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\www
+- 23:52:50.125 INFO: Index files: index.html,index.php
+- 23:52:50.125 INFO: CGI interpreter: C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\php\php-cgi.exe
+- 23:52:50.125 INFO: CGI pattern: **.php$
+- 23:52:50.125 INFO: Hide files patterns: 
+- 23:52:50.125 INFO: CGI environment variables set: TMP=C:\Users\DELL\AppData\Local\Temp\,TEMP=C:\Users\DELL\AppData\Local\Temp\,TMPDIR=C:\Users\DELL\AppData\Local\Temp\,SERVER_NAME=127.0.0.1,PHPDESKTOP_VERSION=57.0
+- 23:52:50.125 INFO: Web server url: http://127.0.0.1:7654/
+- 23:52:50.125 INFO: remote_debugging_port = 51602
+- 23:52:50.125 DEBUG: Command line string for the browser process: "C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\phpdesktop-chrome.exe" --no-sandbox --lang=en-US --log-file="C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\debug.log" --remote-debugging-port=51602
+- 23:52:50.204 DEBUG: App::OnContextInitialized()
+- 23:52:50.204 INFO: DPI, window enlarged by 25% new width/height = 1000/750
+- 23:52:50.204 DEBUG: Window max width/height = 1842/984
+- 23:52:50.204 DEBUG: GetBrowserWindow(): not found, hwnd = 920686
+- 23:52:50.204 DEBUG: WindowProc(): event WM_GETMINMAXINFO: could not fetch BrowserWindow
+- 23:52:50.204 DEBUG: BrowserWindow::CreateBrowserControl()
+- 23:52:50.204 DEBUG: StoreBrowserWindow(): hwnd = 920686
+- 23:52:50.282 DEBUG: ClientHandler::OnAfterCreated()
+- 23:52:50.282 DEBUG: SetCefBrowser() called in ClientHandler::OnAfterCreated()
+- 23:52:50.297 DEBUG: OnLoadingStateChange: loading=1, url=
+- 23:52:50.016 DEBUG: Command line string for the gpu-process process: "C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\phpdesktop-chrome.exe" --type=gpu-process --no-sandbox --lang=en-US --log-file="C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\debug.log" --disable-d3d11 --disable-direct-composition --supports-dual-gpus=false --gpu-driver-bug-workarounds=7,10,16,18,19,20,23,26,41,74 --disable-gl-extensions="GL_KHR_blend_equation_advanced GL_KHR_blend_equation_advanced_coherent" --gpu-vendor-id=0x1002 --gpu-device-id=0x6606 --gpu-driver-vendor="Advanced Micro Devices, Inc." --gpu-driver-version=15.201.1101.0 --gpu-driver-date=8-6-2015 --gpu-secondary-vendor-ids=0x8086 --gpu-secondary-device-ids=0x0416 --lang=en-US --log-file="C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\debug.log" --service-request-channel-token=EC3A5870616D2F5B25E4265C7F562734 --mojo-platform-channel-handle=1808 /prefetch:2
+- 23:52:50.000 DEBUG: Command line string for the renderer process: "C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\phpdesktop-chrome.exe" --type=renderer --no-sandbox --primordial-pipe-token=73E18F17B736BA8DFAD944E2410F0975 --lang=en-US --lang=en-US --log-file="C:\Users\DELL\Desktop\phpdesktop-chrome-57.0-rc-php-7.1.3\debug.log" --enable-pinch --device-scale-factor=1.25 --num-raster-threads=2 --enable-main-frame-before-activation --content-image-texture-target=0,0,3553;0,1,3553;0,2,3553;0,3,3553;0,4,3553;0,5,3553;0,6,3553;0,7,3553;0,8,3553;0,9,3553;0,10,3553;0,11,3553;0,12,3553;0,13,3553;0,14,3553;0,15,3553;1,0,3553;1,1,3553;1,2,3553;1,3,3553;1,4,3553;1,5,3553;1,6,3553;1,7,3553;1,8,3553;1,9,3553;1,10,3553;1,11,3553;1,12,3553;1,13,3553;1,14,3553;1,15,3553;2,0,3553;2,1,3553;2,2,3553;2,3,3553;2,4,3553;2,5,3553;2,6,3553;2,7,3553;2,8,3553;2,9,3553;2,10,3553;2,11,3553;2,12,3553;2,13,3553;2,14,3553;2,15,3553;3,0,3553;3,1,3553;3,2,3553;3,3,3553;3,4,3553;3,5,3553;3,6,3553;3,7,3553;3,8,3553;3,9,3553;3,10,3553;3,11,3553;3,12,3553;3,13,3553;3,14,3553;3,15,3553 --service-request-channel-token=73E18F17B736BA8DFAD944E2410F0975 --renderer-client-id=3 --mojo-platform-channel-handle=2404 /prefetch:1
+- 23:52:50.047 DEBUG: OnBrowserCreated()
+[0210/235250.600:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+- 23:52:51.657 INFO: GET 200 /public/css/style.css
+- 23:52:51.672 INFO: GET 200 /
+- 23:52:51.813 INFO: GET 200 /public/js/app.js
+- 23:52:51.454 DEBUG: OnContextCreated()
+[0210/235252.001:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:7654/public/js/app.js (29)
+- 23:52:52.875 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/
+- 23:52:56.032 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/
+- 23:52:56.735 DEBUG: OnContextCreated()
+- 23:52:56.110 INFO: GET 200 /public/css/style.css?v=1770760376
+- 23:52:56.141 INFO: GET 200 /?page=pos
+[0210/235256.338:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:7654/public/js/app.js (29)
+- 23:52:56.172 INFO: GET 200 /public/js/pos.js
+[0210/235327.004:INFO:CONSOLE(84)] "ReferenceError: debounce is not defined", source: http://127.0.0.1:7654/public/js/pos.js (84)
+- 23:53:27.844 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=pos
+- 23:53:29.844 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=pos
+- 23:53:29.579 DEBUG: OnContextCreated()
+- 23:53:29.000 INFO: GET 200 /?page=dashboard
+[0210/235329.175:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:7654/public/js/app.js (29)
+- 23:53:29.016 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=dashboard
+- 23:53:32.547 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=dashboard
+- 23:53:32.313 DEBUG: OnContextCreated()
+- 23:53:32.704 INFO: GET 200 /?page=products
+[0210/235332.916:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:7654/public/js/app.js (29)
+- 23:53:32.797 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=products
+- 23:53:38.922 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=products
+- 23:53:38.657 DEBUG: OnContextCreated()
+- 23:53:38.047 INFO: GET 200 /?page=products&action=edit&id=3
+[0210/235338.257:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:7654/public/js/app.js (29)
+- 23:53:38.079 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=products&action=edit&id=3
+- 23:53:40.969 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=products&action=edit&id=3
+- 23:53:40.688 DEBUG: OnContextCreated()
+- 23:53:40.079 INFO: GET 200 /?page=products
+[0210/235340.256:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:7654/public/js/app.js (29)
+- 23:53:40.094 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=products
+- 23:53:44.563 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=products
+- 23:53:44.282 DEBUG: OnContextCreated()
+- 23:53:44.657 INFO: GET 200 /?page=products&search=&category=&type=
+[0210/235344.838:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:7654/public/js/app.js (29)
+- 23:53:44.672 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=products&search=&category=&type=
+- 23:53:49.204 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=products&search=&category=&type=
+- 23:53:49.907 DEBUG: OnContextCreated()
+- 23:53:49.297 INFO: GET 200 /?page=suppliers
+[0210/235349.483:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:7654/public/js/app.js (29)
+- 23:53:49.313 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=suppliers
+- 23:53:50.422 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=suppliers
+- 23:53:50.141 DEBUG: OnContextCreated()
+[0210/235350.698:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:7654/public/js/app.js (29)
+- 23:53:50.547 INFO: GET 200 /?page=purchases
+- 23:53:50.563 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=purchases
+- 23:53:51.657 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=purchases
+- 23:53:51.407 DEBUG: OnContextCreated()
+- 23:53:51.797 INFO: GET 200 /?page=inventory
+[0210/235351.978:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:7654/public/js/app.js (29)
+- 23:53:51.829 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=inventory
+- 23:53:53.969 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=inventory
+- 23:53:53.907 DEBUG: OnContextCreated()
+[0210/235353.484:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:7654/public/js/app.js (29)
+- 23:53:53.344 INFO: GET 200 /?page=sales
+- 23:53:53.360 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=sales
+- 23:53:55.391 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=sales
+- 23:53:55.125 DEBUG: OnContextCreated()
+- 23:53:55.516 INFO: GET 200 /?page=reports
+[0210/235355.699:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:7654/public/js/app.js (29)
+- 23:53:55.532 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=reports
+[0210/235355.747:INFO:CONSOLE(103)] "Uncaught (in promise) TypeError: Cannot read property 'replace' of undefined", source: http://127.0.0.1:7654/?page=reports (103)
+[0210/235359.317:INFO:CONSOLE(152)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:7654/?page=reports (152)
+[0210/235400.115:INFO:CONSOLE(146)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:7654/?page=reports (146)
+[0210/235402.474:INFO:CONSOLE(128)] "Uncaught (in promise) ReferenceError: apiRequest is not defined", source: http://127.0.0.1:7654/?page=reports (128)
+- 23:54:04.735 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=reports
+- 23:54:04.438 DEBUG: OnContextCreated()
+- 23:54:04.829 INFO: GET 200 /public/css/style.css?v=1770760444
+- 23:54:05.891 INFO: GET 200 /?page=pos
+[0210/235405.065:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:7654/public/js/app.js (29)
+- 23:54:05.891 INFO: GET 304 /public/js/pos.js
+[0210/235407.748:INFO:CONSOLE(84)] "ReferenceError: debounce is not defined", source: http://127.0.0.1:7654/public/js/pos.js (84)
+- 23:54:07.579 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=pos
+- 23:54:09.750 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=pos
+- 23:54:09.454 DEBUG: OnContextCreated()
+- 23:54:10.860 INFO: GET 200 /?page=dashboard
+[0210/235410.027:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:7654/public/js/app.js (29)
+- 23:54:10.860 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=dashboard
+- 23:54:11.844 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=dashboard
+- 23:54:11.641 DEBUG: OnContextCreated()
+- 23:54:11.032 INFO: GET 200 /public/css/style.css?v=1770760451
+[0210/235411.253:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:7654/public/js/app.js (29)
+- 23:54:11.079 INFO: GET 200 /?page=pos
+- 23:54:11.079 INFO: GET 304 /public/js/pos.js
+[0210/235413.306:INFO:CONSOLE(84)] "ReferenceError: debounce is not defined", source: http://127.0.0.1:7654/public/js/pos.js (84)
+- 23:54:13.141 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=pos
+- 23:54:15.860 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=pos
+- 23:54:15.594 DEBUG: OnContextCreated()
+- 23:54:15.985 INFO: GET 200 /?page=dashboard
+[0210/235415.158:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:7654/public/js/app.js (29)
+- 23:54:15.000 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=dashboard
+- 23:54:16.313 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=dashboard
+- 23:54:16.032 DEBUG: OnContextCreated()
+- 23:54:16.422 INFO: GET 200 /?page=products
+[0210/235416.600:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:7654/public/js/app.js (29)
+- 23:54:16.454 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=products
+- 23:54:17.469 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=products
+- 23:54:17.188 DEBUG: OnContextCreated()
+[0210/235417.743:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:7654/public/js/app.js (29)
+- 23:54:17.579 INFO: GET 200 /?page=purchases
+- 23:54:17.579 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=purchases
+- 23:54:18.766 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=purchases
+- 23:54:19.500 DEBUG: OnContextCreated()
+- 23:54:19.891 INFO: GET 200 /?page=suppliers
+[0210/235419.069:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:7654/public/js/app.js (29)
+- 23:54:19.907 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=suppliers
+- 23:54:21.938 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=suppliers
+- 23:54:21.688 DEBUG: OnContextCreated()
+[0210/235421.241:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:7654/public/js/app.js (29)
+- 23:54:21.079 INFO: GET 200 /?page=purchases
+- 23:54:21.079 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=purchases
+- 23:54:22.313 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=purchases
+- 23:54:22.047 DEBUG: OnContextCreated()
+[0210/235422.602:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:7654/public/js/app.js (29)
+- 23:54:22.438 INFO: GET 200 /?page=purchases
+- 23:54:22.454 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=purchases
+- 23:54:24.813 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=purchases
+- 23:54:25.532 DEBUG: OnContextCreated()
+- 23:54:25.922 INFO: GET 200 /?page=inventory
+[0210/235425.106:INFO:CONSOLE(29)] "Uncaught SyntaxError: Unexpected token ...", source: http://127.0.0.1:7654/public/js/app.js (29)
+- 23:54:25.938 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=inventory
+- 23:54:48.469 DEBUG: F5 pressed, reloading page
+- 23:54:48.469 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=inventory
+- 23:54:48.188 DEBUG: OnContextCreated()
+- 23:54:48.563 INFO: GET 200 /public/css/style.css
+- 23:54:48.594 INFO: GET 200 /?page=inventory
+- 23:54:48.610 INFO: GET 200 /public/js/app.js
+- 23:54:48.610 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=inventory
+- 23:54:48.641 DEBUG: F5 pressed, reloading page
+- 23:54:48.641 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=inventory
+- 23:54:48.344 DEBUG: OnContextCreated()
+- 23:54:48.719 INFO: GET 200 /public/css/style.css
+- 23:54:48.735 INFO: GET 200 /?page=inventory
+- 23:54:48.750 INFO: GET 200 /public/js/app.js
+- 23:54:48.766 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=inventory
+- 23:54:48.813 DEBUG: F5 pressed, reloading page
+- 23:54:48.813 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=inventory
+- 23:54:49.516 DEBUG: OnContextCreated()
+- 23:54:49.891 INFO: GET 200 /public/css/style.css
+- 23:54:49.922 INFO: GET 200 /?page=inventory
+- 23:54:49.922 INFO: GET 200 /public/js/app.js
+- 23:54:49.954 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=inventory
+- 23:54:51.860 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=inventory
+- 23:54:51.563 DEBUG: OnContextCreated()
+- 23:54:51.938 INFO: GET 200 /public/css/style.css?v=1770760491
+- 23:54:51.969 INFO: GET 200 /?page=pos
+- 23:54:51.969 INFO: GET 304 /public/js/pos.js
+- 23:54:51.000 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=pos
+- 23:54:51.110 INFO: GET 200 /?page=pos&action=search&q=
+- 23:54:54.172 INFO: GET 200 /?page=pos&action=findProduct&q=3
+- 23:54:58.938 INFO: GET 200 /?page=pos&action=findProduct&q=2
+- 23:54:59.391 INFO: GET 200 /?page=pos&action=findProduct&q=1
+- 23:55:07.438 INFO: GET 200 /?page=pos&action=search&q=0
+- 23:55:07.594 INFO: GET 200 /?page=pos&action=search&q=00
+- 23:55:08.860 INFO: GET 200 /?page=pos&action=search&q=001
+- 23:55:09.375 INFO: GET 200 /?page=pos&action=search&q=00
+- 23:55:09.563 INFO: GET 200 /?page=pos&action=search&q=0
+- 23:55:09.735 INFO: GET 200 /?page=pos&action=search&q=
+- 23:55:11.719 INFO: GET 200 /?page=pos&action=search&q=F
+- 23:55:12.907 INFO: GET 200 /?page=pos&action=search&q=FD
+- 23:55:12.657 INFO: GET 200 /?page=pos&action=search&q=F
+- 23:55:13.000 INFO: GET 200 /?page=pos&action=search&q=
+- 23:55:14.250 INFO: GET 200 /?page=pos&action=search&q=%D8%A8
+- 23:55:14.422 INFO: GET 200 /?page=pos&action=search&q=%D8%A8%D9%8A
+- 23:55:17.032 INFO: GET 200 /?page=pos&action=search&q=%D8%A8
+- 23:55:17.360 INFO: GET 200 /?page=pos&action=search&q=
+- 23:56:16.985 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=pos
+- 23:56:16.719 DEBUG: OnContextCreated()
+- 23:56:16.110 INFO: GET 200 /?page=dashboard
+- 23:56:16.110 INFO: GET 304 /public/js/app.js
+- 23:56:16.110 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=dashboard
+- 23:59:08.813 DEBUG: F5 pressed, reloading page
+- 23:59:08.813 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=dashboard
+- 23:59:09.547 DEBUG: OnContextCreated()
+- 23:59:09.922 INFO: GET 200 /public/css/style.css
+- 23:59:09.954 INFO: GET 200 /?page=dashboard
+- 23:59:09.954 INFO: GET 200 /public/js/app.js
+- 23:59:09.969 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=dashboard
+- 23:59:09.032 DEBUG: F5 pressed, reloading page
+- 23:59:09.032 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=dashboard
+- 23:59:09.766 DEBUG: OnContextCreated()
+- 23:59:09.157 INFO: GET 200 /public/css/style.css
+- 23:59:09.188 INFO: GET 200 /?page=dashboard
+- 23:59:09.188 INFO: GET 200 /public/js/app.js
+- 23:59:09.188 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=dashboard
+- 23:59:09.329 DEBUG: F5 pressed, reloading page
+- 23:59:09.329 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=dashboard
+- 23:59:09.016 DEBUG: OnContextCreated()
+- 23:59:09.407 INFO: GET 200 /public/css/style.css
+- 23:59:09.438 INFO: GET 200 /?page=dashboard
+- 23:59:09.438 INFO: GET 200 /public/js/app.js
+- 23:59:09.454 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=dashboard
+- 23:59:09.594 DEBUG: F5 pressed, reloading page
+- 23:59:09.594 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=dashboard
+- 23:59:09.297 DEBUG: OnContextCreated()
+- 23:59:09.672 INFO: GET 200 /public/css/style.css
+- 23:59:09.735 INFO: GET 200 /public/js/app.js
+- 23:59:09.719 INFO: GET 200 /?page=dashboard
+- 23:59:09.735 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=dashboard
+- 23:59:10.157 DEBUG: F5 pressed, reloading page
+- 23:59:10.172 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=dashboard
+- 23:59:10.438 DEBUG: F5 pressed, reloading page
+- 23:59:10.454 DEBUG: OnLoadError, errorCode=-3, failedUrl=http://127.0.0.1:7654/?page=dashboard
+- 23:59:10.454 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=dashboard
+- 23:59:10.454 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=dashboard
+- 23:59:10.547 INFO: GET 200 /?page=dashboard
+- 23:59:10.235 DEBUG: OnContextCreated()
+- 23:59:10.625 INFO: GET 200 /public/css/style.css
+- 23:59:10.688 INFO: GET 200 /public/js/app.js
+- 23:59:10.688 INFO: GET 200 /?page=dashboard
+- 23:59:10.704 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=dashboard
+- 23:59:12.532 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=dashboard
+- 23:59:12.266 DEBUG: OnContextCreated()
+- 23:59:12.657 INFO: GET 200 /?page=products
+- 23:59:12.688 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=products
+- 23:59:13.750 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=products
+- 23:59:14.469 DEBUG: OnContextCreated()
+- 23:59:14.860 INFO: GET 304 /public/css/style.css
+- 23:59:14.875 INFO: GET 200 /?page=suppliers
+- 23:59:14.891 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=suppliers
+- 23:59:15.891 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=suppliers
+- 23:59:15.625 DEBUG: OnContextCreated()
+- 23:59:15.000 INFO: GET 304 /public/css/style.css
+- 23:59:15.016 INFO: GET 200 /?page=purchases
+- 23:59:15.032 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=purchases
+- 23:59:16.891 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=purchases
+- 23:59:16.594 DEBUG: OnContextCreated()
+- 23:59:16.969 INFO: GET 304 /public/css/style.css
+- 23:59:16.985 INFO: GET 200 /?page=inventory
+- 23:59:16.016 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=inventory
+- 23:59:17.110 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=inventory
+- 23:59:17.891 DEBUG: OnContextCreated()
+- 23:59:17.266 INFO: GET 304 /public/css/style.css
+- 23:59:17.344 INFO: GET 200 /?page=sales
+- 23:59:17.360 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=sales
+- 23:59:18.125 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=sales
+- 23:59:18.844 DEBUG: OnContextCreated()
+- 23:59:18.219 INFO: GET 304 /public/css/style.css
+- 23:59:18.235 INFO: GET 200 /?page=reports
+- 23:59:18.235 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=reports
+[0210/235918.422:INFO:CONSOLE(103)] "Uncaught (in promise) TypeError: Cannot read property 'replace' of undefined", source: http://127.0.0.1:7654/?page=reports (103)
+- 23:59:20.313 INFO: GET 200 /?page=reports&action=daily&date=2026-02-10
+- 23:59:21.094 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=reports
+- 23:59:21.797 DEBUG: OnContextCreated()
+- 23:59:21.172 INFO: GET 304 /public/css/style.css
+- 23:59:21.188 INFO: GET 200 /?page=dashboard
+- 23:59:21.188 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=dashboard
+- 23:59:24.688 DEBUG: OnLoadingStateChange: loading=1, url=http://127.0.0.1:7654/?page=dashboard
+- 23:59:24.407 DEBUG: OnContextCreated()
+- 23:59:24.782 INFO: GET 200 /public/css/style.css?v=1770760764
+- 23:59:24.813 INFO: GET 304 /public/js/pos.js
+- 23:59:24.813 INFO: GET 200 /?page=pos
+- 23:59:24.829 DEBUG: OnLoadingStateChange: loading=0, url=http://127.0.0.1:7654/?page=pos
+- 23:59:25.938 INFO: GET 200 /?page=pos&action=search&q=
+- 23:59:40.047 INFO: GET 200 /?page=pos&action=search&q=%D9%81
+- 23:59:40.250 INFO: GET 200 /?page=pos&action=search&q=%D9%81%D9%84
+- 23:59:40.563 INFO: GET 200 /?page=pos&action=search&q=%D9%81%D9%84%D9%81
+- 23:59:41.704 INFO: GET 200 /?page=pos&action=findProduct&q=3
+- 00:01:30.954 DEBUG: WM_DESTROY
+- 00:01:30.954 DEBUG: RemoveBrowserWindow(): hwnd = 920686
+- 00:01:30.954 INFO: Stopping Mongoose web server
+- 00:01:30.969 DEBUG: Mongoose webserver stopped immediately
+- 00:01:30.969 DEBUG: OnBeforeClose() hwnd=1182738
+- 00:01:30.969 DEBUG: RemoveBrowserWindow(): hwnd = 1182738
+- 00:01:30.969 DEBUG: GetBrowserWindow(): not found, hwnd = 1182738
+- 00:01:30.969 WARNING: RemoveBrowserWindow() failed: GetBrowserWindow() failed
+- 00:01:30.969 DEBUG: Calling CefQuitMessageLoop()
+- 00:01:30.641 DEBUG: OnBrowserDestroyed()
+- 00:01:30.079 INFO: Ended application
+- 00:01:30.079 INFO: --------------------------------------------------------

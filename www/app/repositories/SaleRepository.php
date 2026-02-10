@@ -1,0 +1,146 @@
+<?php
+/**
+ * Sale Repository - Data Access Layer
+ */
+
+class SaleRepository {
+    private $db;
+
+    public function __construct() {
+        $this->db = Database::getInstance()->getConnection();
+    }
+
+    /**
+     * Create a sale with items (within existing transaction)
+     */
+    public function create($saleData, $items) {
+        // Generate sale number for today
+        $saleNumber = $this->getNextSaleNumber();
+
+        $stmt = $this->db->prepare(
+            "INSERT INTO sales (sale_number, subtotal, discount, total, payment_method, notes)
+             VALUES (:sale_number, :subtotal, :discount, :total, :payment_method, :notes)"
+        );
+        $stmt->execute([
+            ':sale_number' => $saleNumber,
+            ':subtotal' => $saleData['subtotal'],
+            ':discount' => $saleData['discount'] ?? 0,
+            ':total' => $saleData['total'],
+            ':payment_method' => $saleData['payment_method'] ?? 'cash',
+            ':notes' => $saleData['notes'] ?? null,
+        ]);
+
+        $saleId = $this->db->lastInsertId();
+
+        // Insert items
+        $itemStmt = $this->db->prepare(
+            "INSERT INTO sale_items (sale_id, product_id, product_name, quantity, price, sale_mode, subtotal)
+             VALUES (:sale_id, :product_id, :product_name, :quantity, :price, :sale_mode, :subtotal)"
+        );
+
+        foreach ($items as $item) {
+            $itemStmt->execute([
+                ':sale_id' => $saleId,
+                ':product_id' => $item['product_id'],
+                ':product_name' => $item['product_name'],
+                ':quantity' => $item['quantity'],
+                ':price' => $item['price'],
+                ':sale_mode' => $item['sale_mode'] ?? 'unit',
+                ':subtotal' => $item['subtotal'],
+            ]);
+        }
+
+        return $saleId;
+    }
+
+    /**
+     * Get next sale number for today
+     */
+    private function getNextSaleNumber() {
+        $stmt = $this->db->prepare(
+            "SELECT COALESCE(MAX(sale_number), 0) + 1 FROM sales WHERE date(datetime) = date('now', 'localtime')"
+        );
+        $stmt->execute();
+        return $stmt->fetchColumn();
+    }
+
+    /**
+     * Get sale by ID with items
+     */
+    public function findById($id) {
+        $stmt = $this->db->prepare("SELECT * FROM sales WHERE id = :id");
+        $stmt->execute([':id' => $id]);
+        $sale = $stmt->fetch();
+
+        if ($sale) {
+            $itemStmt = $this->db->prepare("SELECT * FROM sale_items WHERE sale_id = :sale_id");
+            $itemStmt->execute([':sale_id' => $id]);
+            $sale['items'] = $itemStmt->fetchAll();
+        }
+
+        return $sale;
+    }
+
+    /**
+     * Get sales list with filters
+     */
+    public function getAll($dateFrom = '', $dateTo = '', $limit = 50) {
+        $sql = "SELECT * FROM sales WHERE 1=1";
+        $params = [];
+
+        if ($dateFrom !== '') {
+            $sql .= " AND date(datetime) >= :date_from";
+            $params[':date_from'] = $dateFrom;
+        }
+        if ($dateTo !== '') {
+            $sql .= " AND date(datetime) <= :date_to";
+            $params[':date_to'] = $dateTo;
+        }
+
+        $sql .= " ORDER BY datetime DESC LIMIT :limit";
+
+        $stmt = $this->db->prepare($sql);
+        foreach ($params as $key => $val) {
+            $stmt->bindValue($key, $val);
+        }
+        $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    /**
+     * Get today's sales summary
+     */
+    public function getTodaySummary() {
+        $stmt = $this->db->prepare(
+            "SELECT COUNT(*) as count, COALESCE(SUM(total), 0) as total 
+             FROM sales WHERE date(datetime) = date('now', 'localtime')"
+        );
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+
+    /**
+     * Get sales totals by date range
+     */
+    public function getSalesTotals($dateFrom, $dateTo) {
+        $stmt = $this->db->prepare(
+            "SELECT date(datetime) as sale_date, COUNT(*) as count, SUM(total) as total
+             FROM sales 
+             WHERE date(datetime) >= :from AND date(datetime) <= :to
+             GROUP BY date(datetime)
+             ORDER BY sale_date DESC"
+        );
+        $stmt->execute([':from' => $dateFrom, ':to' => $dateTo]);
+        return $stmt->fetchAll();
+    }
+
+    /**
+     * Count total sales
+     */
+    public function count() {
+        $stmt = $this->db->prepare("SELECT COUNT(*) FROM sales");
+        $stmt->execute();
+        return $stmt->fetchColumn();
+    }
+}
