@@ -10,7 +10,7 @@ $currentPage = $_GET['page'] ?? 'dashboard';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>نظام نقاط البيع والمخزون</title>
-    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="public/css/main.css?v=<?= time() ?>">
 </head>
 <body>
 <div class="toast-container" id="toastContainer"></div>

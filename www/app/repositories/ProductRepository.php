@@ -92,8 +92,8 @@ class ProductRepository {
      */
     public function create($data) {
         $stmt = $this->db->prepare(
-            "INSERT INTO products (name, barcode, plu_code, type, purchase_price, sale_price_unit, sale_price_pack, pack_quantity, stock_quantity, min_stock, category, notes)
-             VALUES (:name, :barcode, :plu_code, :type, :purchase_price, :sale_price_unit, :sale_price_pack, :pack_quantity, :stock_quantity, :min_stock, :category, :notes)"
+            "INSERT INTO products (name, barcode, plu_code, type, purchase_price, sale_price_unit, pack_type, pack_unit_quantity, pack_purchase_price, pack_sale_price, stock_quantity, min_stock, category, notes)
+             VALUES (:name, :barcode, :plu_code, :type, :purchase_price, :sale_price_unit, :pack_type, :pack_unit_quantity, :pack_purchase_price, :pack_sale_price, :stock_quantity, :min_stock, :category, :notes)"
         );
         $stmt->execute([
             ':name' => $data['name'],
@@ -102,8 +102,10 @@ class ProductRepository {
             ':type' => $data['type'] ?? 'unit',
             ':purchase_price' => $data['purchase_price'] ?? 0,
             ':sale_price_unit' => $data['sale_price_unit'] ?? 0,
-            ':sale_price_pack' => $data['sale_price_pack'] ?: null,
-            ':pack_quantity' => $data['pack_quantity'] ?: null,
+            ':pack_type' => $data['pack_type'] ?: null,
+            ':pack_unit_quantity' => $data['pack_unit_quantity'] ?: null,
+            ':pack_purchase_price' => $data['pack_purchase_price'] ?: null,
+            ':pack_sale_price' => $data['pack_sale_price'] ?: null,
             ':stock_quantity' => $data['stock_quantity'] ?? 0,
             ':min_stock' => $data['min_stock'] ?? 0,
             ':category' => $data['category'] ?: null,
@@ -120,7 +122,8 @@ class ProductRepository {
             "UPDATE products SET 
                 name = :name, barcode = :barcode, plu_code = :plu_code, type = :type,
                 purchase_price = :purchase_price, sale_price_unit = :sale_price_unit,
-                sale_price_pack = :sale_price_pack, pack_quantity = :pack_quantity,
+                pack_type = :pack_type, pack_unit_quantity = :pack_unit_quantity,
+                pack_purchase_price = :pack_purchase_price, pack_sale_price = :pack_sale_price,
                 min_stock = :min_stock, category = :category, notes = :notes,
                 updated_at = datetime('now', 'localtime')
              WHERE id = :id"
@@ -133,8 +136,10 @@ class ProductRepository {
             ':type' => $data['type'] ?? 'unit',
             ':purchase_price' => $data['purchase_price'] ?? 0,
             ':sale_price_unit' => $data['sale_price_unit'] ?? 0,
-            ':sale_price_pack' => $data['sale_price_pack'] ?: null,
-            ':pack_quantity' => $data['pack_quantity'] ?: null,
+            ':pack_type' => $data['pack_type'] ?: null,
+            ':pack_unit_quantity' => $data['pack_unit_quantity'] ?: null,
+            ':pack_purchase_price' => $data['pack_purchase_price'] ?: null,
+            ':pack_sale_price' => $data['pack_sale_price'] ?: null,
             ':min_stock' => $data['min_stock'] ?? 0,
             ':category' => $data['category'] ?: null,
             ':notes' => $data['notes'] ?: null,

@@ -97,23 +97,25 @@ class POSEngine {
             $saleId = $this->saleRepo->create($saleRecord, $cartItems);
 
             // Update stock for each item
-            foreach ($cartItems as $item) {
-                if (!empty($item['product_id'])) {
-                    // Decrease stock
-                    $this->productRepo->updateStock($item['product_id'], -$item['quantity']);
+        foreach ($cartItems as $item) {
+            if (!empty($item['product_id'])) {
+                // Use actual_quantity (in pieces) for stock deduction
+                $qtyToDeduct = isset($item['actual_quantity']) ? $item['actual_quantity'] : $item['quantity'];
+                
+                // Decrease stock
+                $this->productRepo->updateStock($item['product_id'], -$qtyToDeduct);
 
-                    // Record stock movement
-                    $this->stockMovementRepo->create([
-                        'product_id' => $item['product_id'],
-                        'type' => 'sale',
-                        'quantity' => -$item['quantity'],
-                        'reference_type' => 'sale',
-                        'reference_id' => $saleId,
-                        'notes' => 'بيع - فاتورة #' . $saleId,
-                    ]);
-                }
+                // Record stock movement
+                $this->stockMovementRepo->create([
+                    'product_id' => $item['product_id'],
+                    'type' => 'sale',
+                    'quantity' => -$qtyToDeduct,
+                    'reference_type' => 'sale',
+                    'reference_id' => $saleId,
+                    'notes' => 'بيع - فاتورة #' . $saleId,
+                ]);
             }
-
+        }
             $db->commit();
 
             // Get the complete sale for receipt

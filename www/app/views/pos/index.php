@@ -9,92 +9,108 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>نقطة البيع - POS</title>
-    <link rel="stylesheet" href="public/css/style.css?v=<?= time() ?>">
+    <link rel="stylesheet" href="public/css/pos_simple.css?v=<?= time() ?>">
 </head>
 <body>
+<script>
+window.onerror = function(msg, url, line, col, error) {
+    alert("JS Error: " + msg + "\nIn: " + url + "\nLine: " + line);
+    return false;
+};
+</script>
 <div class="toast-container" id="toastContainer"></div>
 
-<div class="pos-wrapper">
-    <!-- Right Side: Cart & Checkout -->
-    <div class="pos-sidebar">
-        <!-- Barcode Input -->
-        <div class="pos-input-area">
-            <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-                <a href="?page=dashboard" class="btn btn-ghost btn-sm" title="العودة">🏠</a>
-                <h3 style="flex:1;font-size:16px;">🛒 نقطة البيع</h3>
-                <button class="btn btn-ghost btn-sm" onclick="clearCart()" title="تفريغ السلة">🗑️</button>
-            </div>
-            <div style="position:relative;">
+<div class="pos-fullscreen">
+    <!-- Top Navigation Bar -->
+    <div class="pos-topbar">
+        <div style="display:flex;align-items:center;gap:20px;">
+            <a href="?page=dashboard" class="btn btn-ghost btn-sm">🏠 الرئيسية</a>
+            <h2>🛒 نقطة البيع</h2>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;">
+            <button class="btn btn-outline btn-sm" onclick="openDiscount()">🏷️ خصم</button>
+            <button class="btn btn-outline btn-sm" onclick="openManualPrice()">💲 يدوي</button>
+            <button class="btn btn-outline btn-sm" onclick="openWeightInput()">⚖️ وزن</button>
+            <button class="btn btn-danger btn-sm" onclick="clearCart()">🗑️ تفريغ</button>
+        </div>
+    </div>
+
+    <!-- Input Section -->
+    <div class="pos-input-section">
+        <div class="pos-input-wrapper">
+            <div class="pos-input-group">
+                <span class="pos-input-icon">📷</span>
                 <input type="text" id="barcodeInput" class="pos-barcode-input" 
-                       placeholder="📷 امسح الباركود أو أدخل الكود..." 
+                       placeholder="امسح الباركود أو أدخل الكود (F2)..." 
                        autocomplete="off" autofocus>
                 <div class="pos-search-results" id="searchResults"></div>
             </div>
+            <div class="pos-input-group">
+                <span class="pos-input-icon">🔍</span>
+                <input type="text" id="productSearch" class="pos-barcode-input" 
+                       placeholder="ابحث عن منتج بالاسم..." 
+                       oninput="searchProducts(this.value)">
+                <div class="pos-search-results" id="productSearchResults"></div>
+            </div>
         </div>
-
-        <!-- Quick Action Buttons -->
-        <div class="pos-actions-bar">
-            <button class="pos-action-btn" onclick="openManualPrice()">💲 سعر يدوي</button>
-            <button class="pos-action-btn" onclick="openWeightInput()">⚖️ وزن</button>
-            <button class="pos-action-btn" onclick="openSearch()">🔍 بحث</button>
-            <button class="pos-action-btn" onclick="openDiscount()">🏷️ خصم</button>
+        <div class="pos-shortcuts-hint">
+            <span>F2: باركود</span>
+            <span>F3: تفاصيل</span>
+            <span>F5: إتمام</span>
+            <span>F8: تبديل</span>
+            <span>↑↓: تنقل</span>
         </div>
+    </div>
 
-        <!-- Cart Table -->
-        <div class="pos-cart">
-            <table>
+    <!-- Main Cart Area -->
+    <div class="pos-main-cart">
+        <div class="pos-cart-container">
+            <table class="pos-cart-table">
                 <thead>
                     <tr>
-                        <th style="width:40px">#</th>
+                        <th style="width:50px">#</th>
                         <th>المنتج</th>
-                        <th style="width:110px">الكمية</th>
-                        <th style="width:70px">السعر</th>
-                        <th style="width:80px">المجموع</th>
-                        <th style="width:36px"></th>
+                        <th style="width:140px">نوع الوحدة</th>
+                        <th style="width:140px">الكمية</th>
+                        <th style="width:100px">السعر</th>
+                        <th style="width:110px">المجموع</th>
+                        <th style="width:50px"></th>
                     </tr>
                 </thead>
                 <tbody id="cartBody">
                     <tr id="emptyCart">
-                        <td colspan="6" class="text-center text-muted" style="padding:40px;">
-                            السلة فارغة - امسح باركود أو ابحث عن منتج
+                        <td colspan="7">
+                            <div class="empty-cart-state">
+                                <div class="icon">🛒</div>
+                                <p>السلة فارغة - ابدأ بمسح باركود أو البحث عن منتج</p>
+                            </div>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-
-        <!-- Totals & Checkout -->
-        <div class="pos-totals">
-            <div class="pos-total-row">
-                <span>المجموع الفرعي:</span>
-                <span id="subtotalDisplay">0.00</span>
-            </div>
-            <div class="pos-total-row">
-                <span>الخصم:</span>
-                <span id="discountDisplay">0.00</span>
-            </div>
-            <div class="pos-total-row grand-total">
-                <span>الإجمالي:</span>
-                <span id="totalDisplay">0.00</span>
-            </div>
-            <button class="pos-checkout-btn" id="checkoutBtn" onclick="processCheckout()" disabled>
-                ✅ إتمام البيع (F5)
-            </button>
-        </div>
     </div>
 
-    <!-- Left Side: Product Search / Grid -->
-    <div class="pos-products-area pos-main">
-        <div class="pos-products-search">
-            <input type="text" class="form-control" id="productSearch" 
-                   placeholder="🔍 ابحث عن منتج بالاسم أو الباركود..." 
-                   oninput="searchProducts(this.value)">
-        </div>
-        <div class="pos-products-grid" id="productsGrid">
-            <div class="empty-state" style="grid-column: 1/-1;">
-                <div class="icon">📦</div>
-                <p>ابحث عن منتج أو امسح الباركود</p>
+    <!-- Bottom Totals Bar -->
+    <div class="pos-bottombar">
+        <div class="pos-bottombar-content">
+            <div class="pos-totals">
+                <div class="total-row">
+                    <div class="total-row-label">المجموع الفرعي</div>
+                    <div class="total-row-value" id="subtotalDisplay">0.00</div>
+                </div>
+                <div class="total-row">
+                    <div class="total-row-label">الخصم</div>
+                    <div class="total-row-value" id="discountDisplay">0.00</div>
+                </div>
+                <div class="total-row total-final">
+                    <div class="total-row-label">الإجمالي</div>
+                    <div class="total-row-value" id="totalDisplay">0.00</div>
+                </div>
             </div>
+            <button id="checkoutBtn" onclick="processCheckout()" disabled>
+                ✅ إتمام البيع (F5)
+            </button>
         </div>
     </div>
 </div>
@@ -192,7 +208,7 @@
     </div>
 </div>
 
-<script src="public/js/app.js"></script>
-<script src="public/js/pos.js"></script>
+<script src="public/js/pos_core.js?v=<?= time() ?>"></script>
+<script src="public/js/pos_shortcuts.js?v=<?= time() ?>"></script>
 </body>
 </html>

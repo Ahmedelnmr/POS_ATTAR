@@ -34,8 +34,8 @@ class SaleRepository {
 
         // Insert items
         $itemStmt = $this->db->prepare(
-            "INSERT INTO sale_items (sale_id, product_id, product_name, quantity, price, sale_mode, subtotal)
-             VALUES (:sale_id, :product_id, :product_name, :quantity, :price, :sale_mode, :subtotal)"
+            "INSERT INTO sale_items (sale_id, product_id, product_name, quantity, unit_type, price, sale_mode, subtotal)
+             VALUES (:sale_id, :product_id, :product_name, :quantity, :unit_type, :price, :sale_mode, :subtotal)"
         );
 
         foreach ($items as $item) {
@@ -44,6 +44,7 @@ class SaleRepository {
                 ':product_id' => $item['product_id'],
                 ':product_name' => $item['product_name'],
                 ':quantity' => $item['quantity'],
+                ':unit_type' => $item['unit_type'] ?? 'قطعة',
                 ':price' => $item['price'],
                 ':sale_mode' => $item['sale_mode'] ?? 'unit',
                 ':subtotal' => $item['subtotal'],
