@@ -101,17 +101,32 @@
                     <td class="fw-bold"><?= htmlspecialchars($p['name']) ?></td>
                     <td><span class="badge badge-info"><?= $p['type'] ?></span></td>
                     <td>
-                        <?php if ($p['min_stock'] > 0 && $p['stock_quantity'] <= $p['min_stock']): ?>
-                            <span class="badge badge-danger"><?= $p['stock_quantity'] ?></span>
-                        <?php else: ?>
-                            <span class="badge badge-success"><?= $p['stock_quantity'] ?></span>
-                        <?php endif; ?>
+                        <?php
+                        $stockQty = $p['stock_quantity'];
+                        $packQty = $p['pack_unit_quantity'] ?? 1;
+                        $badgeClass = ($p['min_stock'] > 0 && $stockQty <= $p['min_stock']) ? 'badge-danger' : 'badge-success';
+                        
+                        // Calculate Pack + Unit breakdown
+                        if ($packQty > 1) {
+                            $packs = floor($stockQty / $packQty);
+                            $units = $stockQty % $packQty;
+                            $packName = $p['pack_type'] ?? 'عبوة';
+                            $unitName = $p['type'] === 'weight' ? 'كيلو' : 'قطعة';
+                            $display = "<strong>{$packs}</strong> {$packName}";
+                            if ($units > 0) {
+                                $display .= " + <strong>{$units}</strong> {$unitName}";
+                            }
+                        } else {
+                            $display = "<strong>{$stockQty}</strong>";
+                        }
+                        ?>
+                        <span class="badge <?= $badgeClass ?>"><?= $display ?></span>
                     </td>
                     <td><?= $p['min_stock'] ?></td>
                     <td class="text-muted"><?= number_format($p['stock_quantity'] * $p['purchase_price'], 2) ?></td>
                     <td>
-                        <button class="btn btn-sm btn-outline" onclick="openAdjustModal(<?= $p['id'] ?>, '<?= htmlspecialchars($p['name'], ENT_QUOTES) ?>', <?= $p['stock_quantity'] ?>)">📝 تعديل</button>
-                        <button class="btn btn-sm btn-ghost" onclick="viewMovements(<?= $p['id'] ?>)">📊 الحركات</button>
+                        <button class="btn btn-sm btn-outline" onclick="openAdjust(<?= $p['id'] ?>)" style="cursor:pointer;">📝 تعديل</button>
+                        <button class="btn btn-sm btn-ghost" onclick="viewMoves(<?= $p['id'] ?>)" style="cursor:pointer;">📊 الحركات</button>
                     </td>
                 </tr>
                 <?php endforeach; ?>
@@ -164,7 +179,87 @@
 </div>
 
 <script>
+// ===== DEBUG: Test if JavaScript runs =====
+console.log('✅ Inventory JavaScript loaded!');
+
+// ===== SELF-CONTAINED MODAL & API FUNCTIONS =====
+// (No dependencies on app_core.js)
+
+function openModal(modalId) {
+    var modal = document.getElementById(modalId);
+    if (modal) {
+        modal.classList.add('active');
+    } else {
+        alert('Error: Modal ' + modalId + ' not found');
+    }
+}
+
+function closeModal(modalId) {
+    var modal = document.getElementById(modalId);
+    if (modal) {
+        modal.classList.remove('active');
+    }
+}
+
+function apiRequest(url, options) {
+    options = options || {};
+    var headers = {
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest'
+    };
+    
+    var fetchOptions = {
+        method: options.method || 'GET',
+        headers: headers
+    };
+    
+    if (options.body) {
+        fetchOptions.body = JSON.stringify(options.body);
+    }
+    
+    return fetch(url, fetchOptions)
+        .then(function(response) {
+            return response.json();
+        })
+        .catch(function(error) {
+            console.error('API Error:', error);
+            return { success: false, message: 'خطأ في الاتصال' };
+        });
+}
+
+// Global product map (populated from PHP)
+var productMap = {
+    <?php foreach ($products as $p): ?>
+    <?= $p['id'] ?>: {
+        id: <?= $p['id'] ?>,
+        name: "<?= addslashes($p['name']) ?>",
+        qty: <?= $p['stock_quantity'] ?>
+    },
+    <?php endforeach; ?>
+};
+
+// Simple global functions for onclick
+function openAdjust(id) {
+    console.log('openAdjust called:', id);
+    var p = productMap[id];
+    if (!p) {
+        alert('Product not found');
+        return;
+    }
+    document.getElementById('adjustProductId').value = p.id;
+    document.getElementById('adjustProductName').textContent = p.name;
+    document.getElementById('adjustCurrentQty').value = p.qty;
+    document.getElementById('adjustNewQty').value = p.qty;
+    openModal('adjustModal');
+}
+
+function viewMoves(id) {
+    console.log('viewMoves called:', id);
+    viewMovements(id);
+}
+
 function openAdjustModal(id, name, currentQty) {
+    console.log('🖱️ Button clicked - openAdjustModal:', {id: id, name: name, currentQty: currentQty});
     document.getElementById('adjustProductId').value = id;
     document.getElementById('adjustProductName').textContent = name;
     document.getElementById('adjustCurrentQty').value = currentQty;
@@ -172,51 +267,63 @@ function openAdjustModal(id, name, currentQty) {
     openModal('adjustModal');
 }
 
-async function saveAdjustment() {
-    const productId = document.getElementById('adjustProductId').value;
-    const newQty = parseFloat(document.getElementById('adjustNewQty').value);
-    const reason = document.getElementById('adjustReason').value;
+function saveAdjustment() {
+    console.log('💾 Saving adjustment...');
+    var productId = document.getElementById('adjustProductId').value;
+    var newQty = parseFloat(document.getElementById('adjustNewQty').value);
+    var reason = document.getElementById('adjustReason').value;
 
-    const res = await apiRequest('?page=inventory&action=adjust', {
+    apiRequest('?page=inventory&action=adjust', {
         method: 'POST',
         body: { product_id: productId, new_quantity: newQty, reason: reason }
+    }).then(function(res) {
+        if (res.success) {
+            if (typeof showToast !== 'undefined') {
+                showToast('✅ تم تعديل المخزون');
+            } else {
+                alert('✅ تم تعديل المخزون');
+            }
+            closeModal('adjustModal');
+            setTimeout(function() { location.reload(); }, 500);
+        } else {
+            if (typeof showToast !== 'undefined') {
+                showToast(res.message || 'خطأ', 'error');
+            } else {
+                alert(res.message || 'خطأ');
+            }
+        }
     });
-
-    if (res.success) {
-        showToast('✅ تم تعديل المخزون');
-        closeModal('adjustModal');
-        setTimeout(() => location.reload(), 500);
-    } else {
-        showToast(res.message || 'خطأ', 'error');
-    }
 }
 
-async function viewMovements(productId) {
+function viewMovements(productId) {
+    console.log('🖱️ Button clicked - viewMovements:', productId);
     openModal('movementsModal');
-    const content = document.getElementById('movementsContent');
+    var content = document.getElementById('movementsContent');
     content.innerHTML = '<div class="spinner"></div>';
 
-    const res = await apiRequest(`?page=inventory&action=movements&product_id=${productId}`);
-    if (res.success && res.data && res.data.length > 0) {
-        const typeLabels = { purchase: '🟢 شراء', sale: '🔴 بيع', adjustment: '🟡 تعديل' };
-        content.innerHTML = `
-            <div class="table-wrapper">
-                <table>
-                    <thead><tr><th>التاريخ</th><th>النوع</th><th>الكمية</th><th>ملاحظات</th></tr></thead>
-                    <tbody>
-                        ${res.data.map(m => `
-                            <tr>
-                                <td class="fs-sm">${m.created_at}</td>
-                                <td>${typeLabels[m.type] || m.type}</td>
-                                <td class="${m.quantity >= 0 ? 'text-success' : 'text-danger'} fw-bold">${m.quantity >= 0 ? '+' : ''}${m.quantity}</td>
-                                <td class="text-muted fs-sm">${m.notes || '—'}</td>
-                            </tr>
-                        `).join('')}
-                    </tbody>
-                </table>
-            </div>`;
-    } else {
-        content.innerHTML = '<div class="empty-state"><p>لا توجد حركات</p></div>';
-    }
+    apiRequest('?page=inventory&action=movements&product_id=' + productId).then(function(res) {
+        if (res.success && res.data && res.data.length > 0) {
+            var typeLabels = { purchase: '🟢 شراء', sale: '🔴 بيع', adjustment: '🟡 تعديل' };
+            var rows = '';
+            for (var i = 0; i < res.data.length; i++) {
+                var m = res.data[i];
+                var colorClass = m.quantity >= 0 ? 'text-success' : 'text-danger';
+                var sign = m.quantity >= 0 ? '+' : '';
+                rows += '<tr>' +
+                    '<td class="fs-sm">' + m.created_at + '</td>' +
+                    '<td>' + (typeLabels[m.type] || m.type) + '</td>' +
+                    '<td class="' + colorClass + ' fw-bold">' + sign + m.quantity + '</td>' +
+                    '<td class="text-muted fs-sm">' + (m.notes || '—') + '</td>' +
+                    '</tr>';
+            }
+            content.innerHTML = '<div class="table-wrapper">' +
+                '<table>' +
+                '<thead><tr><th>التاريخ</th><th>النوع</th><th>الكمية</th><th>ملاحظات</th></tr></thead>' +
+                '<tbody>' + rows + '</tbody>' +
+                '</table></div>';
+        } else {
+            content.innerHTML = '<div class="empty-state"><p>لا توجد حركات</p></div>';
+        }
+    });
 }
 </script>

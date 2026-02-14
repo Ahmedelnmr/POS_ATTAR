@@ -15,14 +15,15 @@ class PurchaseRepository {
      */
     public function create($invoiceData, $items) {
         $stmt = $this->db->prepare(
-            "INSERT INTO purchase_invoices (supplier_id, invoice_number, date, total, notes)
-             VALUES (:supplier_id, :invoice_number, :date, :total, :notes)"
+            "INSERT INTO purchase_invoices (supplier_id, invoice_number, date, total, discount, notes)
+             VALUES (:supplier_id, :invoice_number, :date, :total, :discount, :notes)"
         );
         $stmt->execute([
             ':supplier_id' => $invoiceData['supplier_id'],
             ':invoice_number' => $invoiceData['invoice_number'] ?? null,
             ':date' => $invoiceData['date'] ?? date('Y-m-d'),
             ':total' => $invoiceData['total'],
+            ':discount' => $invoiceData['discount'] ?? 0,
             ':notes' => $invoiceData['notes'] ?? null,
         ]);
 
@@ -111,6 +112,46 @@ class PurchaseRepository {
         );
         $stmt->execute([':id' => $supplierId]);
         return $stmt->fetchColumn();
+    }
+
+    /**
+     * Get invoice count for a supplier (for auto-increment)
+     */
+    public function getSupplierInvoiceCount($supplierId) {
+        $stmt = $this->db->prepare("SELECT COUNT(*) FROM purchase_invoices WHERE supplier_id = :id");
+        $stmt->execute([':id' => $supplierId]);
+        return $stmt->fetchColumn();
+    }
+
+    /**
+     * Get items from the last invoice for a specific supplier
+     */
+    public function getLastInvoiceItems($supplierId) {
+        // 1. Find last invoice ID
+        $stmt = $this->db->prepare("SELECT id FROM purchase_invoices WHERE supplier_id = :supplier_id ORDER BY id DESC LIMIT 1");
+        $stmt->execute([':supplier_id' => $supplierId]);
+        $invoiceId = $stmt->fetchColumn();
+
+        if (!$invoiceId) {
+            return [];
+        }
+
+        // 2. Get items
+        $stmt = $this->db->prepare("
+            SELECT 
+                pi.*, 
+                p.name as product_name, p.barcode, p.type as product_type,
+                p.pack_type, p.pack_unit_quantity,
+                p.purchase_price as current_unit_cost,
+                p.sale_price_unit as current_unit_price,
+                p.pack_purchase_price as current_pack_cost,
+                p.pack_sale_price as current_pack_price
+            FROM purchase_items pi
+            JOIN products p ON pi.product_id = p.id
+            WHERE pi.invoice_id = :id
+        ");
+        $stmt->execute([':id' => $invoiceId]);
+        return $stmt->fetchAll();
     }
 
     public function count() {

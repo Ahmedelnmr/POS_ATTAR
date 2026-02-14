@@ -19,18 +19,37 @@ class POSEngine {
      * Find product for POS by barcode, PLU, or ID
      */
     public function findProduct($query) {
-        // Try barcode first
+        $query = trim($query); // Always trim whitespace
+
+        // 1. Try exact match (trimmed)
         $product = $this->productRepo->findByBarcode($query);
         if ($product) return $product;
 
-        // Try PLU
+        // 2. Try PLU
         $product = $this->productRepo->findByPLU($query);
         if ($product) return $product;
 
-        // Try ID
+        // 3. Try ID
         if (is_numeric($query)) {
             $product = $this->productRepo->findById((int)$query);
             if ($product && $product['is_active']) return $product;
+        }
+
+        // 4. Fuzzy Barcode Matching (UPC-A vs EAN-13)
+        if (is_numeric($query)) {
+            // Case A: Scanned has leading zero (EAN-13), DB has UPC-A (12 digits)
+            if (strlen($query) == 13 && substr($query, 0, 1) === '0') {
+                $upc = substr($query, 1);
+                $product = $this->productRepo->findByBarcode($upc);
+                if ($product) return $product;
+            }
+
+            // Case B: Scanned is UPC-A (12 digits), DB has EAN-13 (leading zero)
+            if (strlen($query) == 12) {
+                $ean = '0' . $query;
+                $product = $this->productRepo->findByBarcode($ean);
+                if ($product) return $product;
+            }
         }
 
         return null;

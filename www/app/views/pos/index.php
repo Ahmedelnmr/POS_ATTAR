@@ -38,19 +38,27 @@ window.onerror = function(msg, url, line, col, error) {
     <!-- Input Section -->
     <div class="pos-input-section">
         <div class="pos-input-wrapper">
-            <div class="pos-input-group">
-                <span class="pos-input-icon">📷</span>
-                <input type="text" id="barcodeInput" class="pos-barcode-input" 
-                       placeholder="امسح الباركود أو أدخل الكود (F2)..." 
-                       autocomplete="off" autofocus>
-                <div class="pos-search-results" id="searchResults"></div>
+             <!-- Embedded Scanner Container -->
+            <div id="embeddedScanner" style="width: 320px; height: 240px; background: #000; overflow: hidden; border-radius: 8px; border: 2px solid var(--primary); margin-left: 10px; position: relative;">
+                <div id="reader" style="width: 100%; height: 100%;"></div>
+                <div id="scannerStatus" style="position:absolute; bottom:0; left:0; right:0; background:rgba(0,0,0,0.5); color:white; font-size:10px; text-align:center; padding:2px;">جاري التشغيل...</div>
             </div>
-            <div class="pos-input-group">
-                <span class="pos-input-icon">🔍</span>
-                <input type="text" id="productSearch" class="pos-barcode-input" 
-                       placeholder="ابحث عن منتج بالاسم..." 
-                       oninput="searchProducts(this.value)">
-                <div class="pos-search-results" id="productSearchResults"></div>
+
+            <div style="flex: 1;">
+                <div class="pos-input-group">
+                    <span class="pos-input-icon">📷</span>
+                    <input type="text" id="barcodeInput" class="pos-barcode-input" 
+                           placeholder="امسح الباركود أو أدخل الكود (F2)..." 
+                           autocomplete="off" autofocus>
+                    <div class="pos-search-results" id="searchResults"></div>
+                </div>
+                <div class="pos-input-group">
+                    <span class="pos-input-icon">🔍</span>
+                    <input type="text" id="productSearch" class="pos-barcode-input" 
+                           placeholder="ابحث عن منتج بالاسم..." 
+                           oninput="searchProducts(this.value)">
+                    <div class="pos-search-results" id="productSearchResults"></div>
+                </div>
             </div>
         </div>
         <div class="pos-shortcuts-hint">
@@ -114,6 +122,8 @@ window.onerror = function(msg, url, line, col, error) {
         </div>
     </div>
 </div>
+
+<!-- Removed Scanner Modal -->
 
 <!-- Manual Price Modal -->
 <div class="modal-overlay" id="manualPriceModal">
@@ -196,18 +206,84 @@ window.onerror = function(msg, url, line, col, error) {
 <div class="modal-overlay" id="receiptModal">
     <div class="modal" style="max-width:380px;">
         <div class="modal-header">
-            <h3>🧾 إيصال البيع</h3>
+            <h3>Receipt</h3>
             <button class="modal-close" onclick="closeModal('receiptModal')">&times;</button>
         </div>
         <div class="modal-body" id="receiptContent">
         </div>
         <div class="modal-footer">
-            <button class="btn btn-outline" onclick="closeModal('receiptModal')">إغلاق</button>
-            <button class="btn btn-primary" onclick="printReceipt()">🖨️ طباعة</button>
+            <button class="btn btn-outline" onclick="closeModal('receiptModal')">Close</button>
+            <button class="btn btn-primary" onclick="printReceipt()">Print</button>
         </div>
     </div>
 </div>
 
+<script src="public/js/html5-qrcode.min.js?v=<?= time() ?>"></script>
+<script>
+let html5QrCode;
+
+function startScanner() {
+    // Check if html5QrCode is defined
+    if (typeof Html5Qrcode === "undefined") {
+        document.getElementById('scannerStatus').textContent = "خطأ: المكتبة غير محملة";
+        document.getElementById('scannerStatus').style.background = "red";
+        return;
+    }
+
+    html5QrCode = new Html5Qrcode("reader");
+    // Try environment first, but dont enforce strict if desktop (no back camera)
+    // Actually Html5Qrcode handles "environment" gracefully usually
+    html5QrCode.start(
+        { facingMode: "environment" }, 
+        { fps: 10, qrbox: { width: 250, height: 150 } }, // Explicit box size
+        (decodedText, decodedResult) => {
+            // Success
+            document.getElementById('scannerStatus').textContent = "✅ تم المسح";
+            document.getElementById('scannerStatus').style.background = "green";
+            setTimeout(() => {
+                 document.getElementById('scannerStatus').textContent = "📷 جاري المسح...";
+                 document.getElementById('scannerStatus').style.background = "rgba(0,0,0,0.5)";
+            }, 1000);
+            
+            // Check for duplicate scan
+            if (window.lastScannedCode === decodedText) {
+                const now = new Date().getTime();
+                if (now - window.lastScannedTime < 2000) {
+                    return; // Ignore duplicate scan within 2 seconds
+                }
+            }
+            
+            window.lastScannedCode = decodedText;
+            window.lastScannedTime = new Date().getTime();
+
+            // Add to cart directly
+            addByCode(decodedText);
+            
+            // Play sound
+            let audio = new Audio("public/audio/beep.mp3");
+            audio.play().catch(e => {});
+
+            // NO stopScanner() - Keep running!
+        },
+        (errorMessage) => {
+            // ignore
+        }
+    ).then(() => {
+        document.getElementById('scannerStatus').textContent = "📷 الكاميرا تعمل";
+    }).catch(err => {
+        console.warn("Camera start failed: " + err);
+        document.getElementById('scannerStatus').textContent = "❌ خطأ: الكاميرا";
+        document.getElementById('scannerStatus').style.background = "red";
+    });
+}
+
+// Auto-start on load
+document.addEventListener('DOMContentLoaded', function() {
+    startScanner();
+});
+
+
+</script>
 <script src="public/js/pos_core.js?v=<?= time() ?>"></script>
 <script src="public/js/pos_shortcuts.js?v=<?= time() ?>"></script>
 </body>

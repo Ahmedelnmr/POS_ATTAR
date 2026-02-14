@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS products (
     purchase_price REAL NOT NULL DEFAULT 0,
     sale_price_unit REAL NOT NULL DEFAULT 0,
     pack_type TEXT DEFAULT 'كرتونة',
-    pack_unit_quantity INTEGER DEFAULT NULL,
+    pack_unit_quantity REAL DEFAULT NULL,
     pack_purchase_price REAL DEFAULT NULL,
     pack_sale_price REAL DEFAULT NULL,
     stock_quantity REAL NOT NULL DEFAULT 0,

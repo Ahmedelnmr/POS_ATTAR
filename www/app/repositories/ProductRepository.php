@@ -73,7 +73,10 @@ class ProductRepository {
      */
     public function search($query, $limit = 20) {
         $stmt = $this->db->prepare(
-            "SELECT id, name, barcode, plu_code, type, sale_price_unit, sale_price_pack, pack_quantity, stock_quantity 
+            "SELECT id, name, barcode, plu_code, type, 
+                    purchase_price, sale_price_unit,
+                    pack_type, pack_unit_quantity, pack_purchase_price, pack_sale_price,
+                    stock_quantity, min_stock 
              FROM products 
              WHERE is_active = 1 AND (name LIKE :q OR barcode LIKE :q2 OR plu_code LIKE :q3)
              ORDER BY name ASC
@@ -115,35 +118,40 @@ class ProductRepository {
     }
 
     /**
-     * Update existing product
+     * Update existing product (Partial or Full)
      */
     public function update($id, $data) {
-        $stmt = $this->db->prepare(
-            "UPDATE products SET 
-                name = :name, barcode = :barcode, plu_code = :plu_code, type = :type,
-                purchase_price = :purchase_price, sale_price_unit = :sale_price_unit,
-                pack_type = :pack_type, pack_unit_quantity = :pack_unit_quantity,
-                pack_purchase_price = :pack_purchase_price, pack_sale_price = :pack_sale_price,
-                min_stock = :min_stock, category = :category, notes = :notes,
-                updated_at = datetime('now', 'localtime')
-             WHERE id = :id"
-        );
-        return $stmt->execute([
-            ':id' => $id,
-            ':name' => $data['name'],
-            ':barcode' => $data['barcode'] ?: null,
-            ':plu_code' => $data['plu_code'] ?: null,
-            ':type' => $data['type'] ?? 'unit',
-            ':purchase_price' => $data['purchase_price'] ?? 0,
-            ':sale_price_unit' => $data['sale_price_unit'] ?? 0,
-            ':pack_type' => $data['pack_type'] ?: null,
-            ':pack_unit_quantity' => $data['pack_unit_quantity'] ?: null,
-            ':pack_purchase_price' => $data['pack_purchase_price'] ?: null,
-            ':pack_sale_price' => $data['pack_sale_price'] ?: null,
-            ':min_stock' => $data['min_stock'] ?? 0,
-            ':category' => $data['category'] ?: null,
-            ':notes' => $data['notes'] ?: null,
-        ]);
+        $fields = [];
+        $params = [':id' => $id];
+
+        // Map allowed fields
+        $allowed = [
+            'name', 'barcode', 'plu_code', 'type', 
+            'purchase_price', 'sale_price_unit',
+            'pack_type', 'pack_unit_quantity',
+            'pack_purchase_price', 'pack_sale_price',
+            'stock_quantity', 'min_stock', 
+            'category', 'notes', 'is_active'
+        ];
+
+        foreach ($allowed as $field) {
+            if (array_key_exists($field, $data)) {
+                $fields[] = "$field = :$field";
+                $params[":$field"] = $data[$field];
+            }
+        }
+
+        // Always update timestamp
+        $fields[] = "updated_at = datetime('now', 'localtime')";
+
+        if (empty($fields)) {
+            return false;
+        }
+
+        $sql = "UPDATE products SET " . implode(', ', $fields) . " WHERE id = :id";
+        $stmt = $this->db->prepare($sql);
+        
+        return $stmt->execute($params);
     }
 
     /**

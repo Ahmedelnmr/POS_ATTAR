@@ -31,6 +31,11 @@ class ProductService {
     }
 
     public function create($data) {
+        // Sanitize
+        if (isset($data['barcode'])) {
+            $data['barcode'] = trim($data['barcode']);
+        }
+
         // Validate
         $validator = new Validator($data);
         $validator->required('name', 'اسم المنتج')
@@ -56,6 +61,11 @@ class ProductService {
     }
 
     public function update($id, $data) {
+        // Sanitize
+        if (isset($data['barcode'])) {
+            $data['barcode'] = trim($data['barcode']);
+        }
+
         $validator = new Validator($data);
         $validator->required('name', 'اسم المنتج')
                   ->numeric('purchase_price', 'سعر الشراء')

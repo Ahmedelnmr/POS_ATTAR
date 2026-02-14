@@ -43,6 +43,7 @@ class PurchaseController {
             'supplier_id' => $input['supplier_id'] ?? '',
             'invoice_number' => $input['invoice_number'] ?? '',
             'date' => $input['date'] ?? date('Y-m-d'),
+            'discount' => $input['discount'] ?? 0,
             'notes' => $input['notes'] ?? '',
         ];
 
@@ -77,5 +78,25 @@ class PurchaseController {
             include APP_PATH . '/views/purchases/view.php';
             include APP_PATH . '/views/layout/footer.php';
         }
+    }
+
+    public function getLastInvoice() {
+        if (!isset($_GET['supplier_id'])) {
+            Response::json(['success' => false, 'message' => 'Supplier ID required']);
+            return;
+        }
+        
+        $items = $this->purchaseService->getLastInvoiceItems($_GET['supplier_id']);
+        Response::json(['success' => true, 'data' => $items]);
+    }
+
+    public function next_invoice_number() {
+        if (!isset($_GET['supplier_id'])) {
+            Response::json(['success' => false, 'message' => 'Supplier ID required']);
+            return;
+        }
+        
+        $count = $this->purchaseService->getSupplierInvoiceCount($_GET['supplier_id']);
+        Response::json(['success' => true, 'next_number' => $count + 1]);
     }
 }

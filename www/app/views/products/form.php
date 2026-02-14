@@ -31,48 +31,28 @@
             </div>
         </div>
 
-        <div class="form-row">
-            <div class="form-group">
-                <label>النوع *</label>
-                <select name="type" class="form-control" required>
-                    <option value="unit" <?= ($product['type'] ?? '') === 'unit' ? 'selected' : '' ?>>وحدة (قطعة)</option>
-                    <option value="pack" <?= ($product['type'] ?? '') === 'pack' ? 'selected' : '' ?>>عبوة (جملة)</option>
-                    <option value="weight" <?= ($product['type'] ?? '') === 'weight' ? 'selected' : '' ?>>وزن (كجم)</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>القسم</label>
-                <input type="text" name="category" class="form-control" value="<?= htmlspecialchars($product['category'] ?? '') ?>" placeholder="مثال: بهارات، بقالة" list="categoryList">
-                <datalist id="categoryList">
-                    <?php foreach ($categories as $cat): ?>
-                    <option value="<?= htmlspecialchars($cat) ?>">
-                    <?php endforeach; ?>
-                </datalist>
-            </div>
-        </div>
-
-        <div class="form-row">
-            <div class="form-group">
-                <label>سعر شراء القطعة الواحدة *</label>
-                <input type="number" name="purchase_price" id="purchase_price" class="form-control" step="0.01" min="0" required value="<?= $product['purchase_price'] ?? '0' ?>" readonly style="background-color: #f0f0f0;">
-                <small class="text-muted">يحسب تلقائياً من سعر شراء الوحدة الكاملة</small>
-            </div>
-            <div class="form-group">
-                <label>سعر بيع القطعة الواحدة *</label>
-                <input type="number" name="sale_price_unit" class="form-control" step="0.01" min="0" required value="<?= $product['sale_price_unit'] ?? '0' ?>">
-            </div>
-        </div>
+        <!-- Hidden Type Field (Default to 'unit') -->
+        <input type="hidden" name="type" value="unit">
+        <!-- Removed Category Field -->
 
         <fieldset style="border: 1px solid #ddd; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-            <legend style="font-size: 16px; font-weight: bold; padding: 0 10px;">📦 بيانات التعبئة والجملة (اختياري)</legend>
+            <legend style="font-size: 16px; font-weight: bold; padding: 0 10px;">📦 بيانات التسعير والتعبئة</legend>
             
+            <!-- Weight Mode Toggle -->
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label class="custom-control custom-checkbox">
+                    <input type="checkbox" id="is_weight" class="custom-control-input" onchange="toggleWeightMode()">
+                    <span class="custom-control-label" style="font-weight:bold; color:#2c3e50;">⚖️ هذا المنتج يباع بالوزن (شوال / كيلو)</span>
+                </label>
+            </div>
+
             <div class="form-row">
                 <div class="form-group">
-                    <label>نوع التعبئة</label>
+                    <label id="lbl_pack_type">نوع التعبئة</label>
                     <select name="pack_type" id="pack_type" class="form-control">
                         <option value="">-- بدون تعبئة --</option>
                         <?php 
-                        $packTypes = ['كرتونة', 'لفة', 'عبوة', 'حزمة', 'صندوق', 'علبة', 'دستة', 'باكيت', 'شنطة', 'كيس'];
+                        $packTypes = ['كرتونة', 'لفة', 'عبوة', 'حزمة', 'صندوق', 'علبة', 'دستة', 'باكيت', 'شنطة', 'كيس', 'شوال', 'جت'];
                         foreach ($packTypes as $type): 
                         ?>
                         <option value="<?= $type ?>" <?= ($product['pack_type'] ?? '') === $type ? 'selected' : '' ?>><?= $type ?></option>
@@ -80,22 +60,39 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>عدد القطع في الوحدة</label>
-                    <input type="number" name="pack_unit_quantity" id="pack_unit_quantity" class="form-control" min="1" value="<?= $product['pack_unit_quantity'] ?? '' ?>" placeholder="مثال: 12">
-                    <small class="text-muted">كم قطعة في كل وحدة (كرتونة/لفة/etc.)</small>
+                    <label id="lbl_pack_qty">عدد القطع في الوحدة</label>
+                    <input type="number" name="pack_unit_quantity" id="pack_unit_quantity" class="form-control" min="0.001" step="0.001" value="<?= $product['pack_unit_quantity'] ?? '' ?>" placeholder="مثال: 50">
+                    <small class="text-muted" id="help_pack_qty">كم قطعة في كل وحدة</small>
                 </div>
             </div>
 
+            <hr style="margin: 15px 0; border-top: 1px dashed #eee;">
+
+            <!-- Purchase Prices Row -->
             <div class="form-row">
                 <div class="form-group">
-                    <label>سعر شراء الوحدة الكاملة</label>
-                    <input type="number" name="pack_purchase_price" id="pack_purchase_price" class="form-control" step="0.01" min="0" value="<?= $product['pack_purchase_price'] ?? '' ?>" placeholder="مثال: 120">
-                    <small class="text-muted">سيحسب سعر القطعة تلقائياً</small>
+                    <label id="lbl_pack_buy">سعر شراء الوحدة الكاملة (الجملة)</label>
+                    <input type="number" name="pack_purchase_price" id="pack_purchase_price" class="form-control" step="0.01" min="0" value="<?= $product['pack_purchase_price'] ?? '' ?>" placeholder="مثال: 1200">
+                    <small class="text-muted">أدخل السعر هنا ليحسب سعر الوحدة الفرعية</small>
                 </div>
                 <div class="form-group">
-                    <label>سعر بيع الوحدة الكاملة</label>
-                    <input type="number" name="pack_sale_price" id="pack_sale_price" class="form-control" step="0.01" min="0" value="<?= $product['pack_sale_price'] ?? '' ?>" placeholder="مثال: 150">
-                    <small class="text-muted">سعر البيع للوحدة كاملة (مستقل عن سعر القطعة)</small>
+                    <label id="lbl_unit_buy">سعر شراء القطعة الواحدة *</label>
+                    <input type="number" name="purchase_price" id="purchase_price" class="form-control" step="0.001" min="0" required value="<?= $product['purchase_price'] ?? '0' ?>" readonly style="background-color: #f0f0f0;">
+                    <small class="text-muted">محسوب تلقائياً</small>
+                </div>
+            </div>
+
+            <!-- Sale Prices Row -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label id="lbl_pack_sell">سعر بيع الوحدة الكاملة (الجملة)</label>
+                    <input type="number" name="pack_sale_price" id="pack_sale_price" class="form-control" step="0.01" min="0" value="<?= $product['pack_sale_price'] ?? '' ?>" placeholder="مثال: 1500">
+                    <small class="text-muted">سعر بيع الشوال/الكرتونة كاملة</small>
+                </div>
+                <div class="form-group">
+                    <label id="lbl_unit_sell">سعر بيع القطعة الواحدة *</label>
+                    <input type="number" name="sale_price_unit" class="form-control" step="0.001" min="0" required value="<?= $product['sale_price_unit'] ?? '0' ?>">
+                    <small class="text-muted">سعر بيع المستهلك</small>
                 </div>
             </div>
         </fieldset>
@@ -159,7 +156,8 @@ function startScanner() {
         { fps: 10, qrbox: 250 },
         (decodedText, decodedResult) => {
             // Success
-            document.getElementById("barcode").value = decodedText;
+            // Trim whitespace to prevent validation errors
+            document.getElementById("barcode").value = decodedText.trim();
             // Play sound
             let audio = new Audio("public/audio/beep.mp3");
             audio.play().catch(e => {});
@@ -171,7 +169,17 @@ function startScanner() {
         }
     ).catch(err => {
         console.error(err);
-        alert("فشل تشغيل الكاميرا: " + err);
+        var msg = "فشل تشغيل الكاميرا:\n";
+        if (err.name === "NotAllowedError" || err.name === "PermissionDeniedError") {
+            msg += "تم رفض الصلاحية للوصول للكاميرا.";
+        } else if (err.name === "NotFoundError" || err.name === "DevicesNotFoundError") {
+            msg += "لا توجد كاميرا متصلة بالجهاز.";
+        } else if (err.name === "NotReadableError" || err.name === "TrackStartError") {
+            msg += "الكاميرا مستخدمة بالفعل من قبل تطبيق آخر.";
+        } else {
+            msg += (err.name || "خطأ غير معروف") + ": " + (err.message || err);
+        }
+        alert(msg);
         stopScanner();
     });
 }
@@ -187,16 +195,67 @@ function stopScanner() {
     }
 }
 
-// Auto-calculate purchase price per unit when pack price or quantity changes
-document.getElementById('pack_purchase_price').addEventListener('input', calculateUnitPrice);
-document.getElementById('pack_unit_quantity').addEventListener('input', calculateUnitPrice);
+// Initialize
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if editing a weight product
+    var type = document.querySelector('input[name="type"]').value;
+    if (type === 'weight') {
+        document.getElementById('is_weight').checked = true;
+    }
+    toggleWeightMode();
+    
+    // Attach calculation listeners
+    document.getElementById('pack_purchase_price').addEventListener('input', calculateUnitPrice);
+    document.getElementById('pack_unit_quantity').addEventListener('input', calculateUnitPrice);
+});
+
+function toggleWeightMode() {
+    var isWeight = document.getElementById('is_weight').checked;
+    var typeInput = document.querySelector('input[name="type"]');
+    
+    // Update Hidden Type
+    typeInput.value = isWeight ? 'weight' : 'unit';
+
+    // Labels
+    if (isWeight) {
+        // Weight Mode (Sack -> Kg)
+        document.getElementById('lbl_pack_type').textContent = 'نوع العبوة (شوال/كيس)';
+        document.getElementById('lbl_pack_qty').textContent = 'وزن العبوة (كجم)';
+        document.getElementById('help_pack_qty').textContent = 'مثال: 50.5 (وزن الشوال)';
+        
+        document.getElementById('lbl_pack_buy').textContent = 'سعر شراء العبوة كاملة';
+        document.getElementById('lbl_unit_buy').textContent = 'سعر شراء الكيلو *';
+        
+        document.getElementById('lbl_pack_sell').textContent = 'سعر بيع العبوة كاملة';
+        document.getElementById('lbl_unit_sell').textContent = 'سعر بيع الكيلو *';
+        
+        // Steps
+        document.getElementById('pack_unit_quantity').setAttribute('step', '0.001');
+        document.getElementById('pack_unit_quantity').setAttribute('min', '0.001');
+    } else {
+        // Unit Mode (Pack -> Piece)
+        document.getElementById('lbl_pack_type').textContent = 'نوع التعبئة';
+        document.getElementById('lbl_pack_qty').textContent = 'عدد القطع في الوحدة';
+        document.getElementById('help_pack_qty').textContent = 'كم قطعة في كل وحدة (كرتونة/لفة)';
+        
+        document.getElementById('lbl_pack_buy').textContent = 'سعر شراء الوحدة الكاملة (الجملة)';
+        document.getElementById('lbl_unit_buy').textContent = 'سعر شراء القطعة الواحدة *';
+        
+        document.getElementById('lbl_pack_sell').textContent = 'سعر بيع الوحدة الكاملة (الجملة)';
+        document.getElementById('lbl_unit_sell').textContent = 'سعر بيع القطعة الواحدة *';
+        
+        // Steps
+        document.getElementById('pack_unit_quantity').setAttribute('step', '1');
+        document.getElementById('pack_unit_quantity').setAttribute('min', '1');
+    }
+}
 
 function calculateUnitPrice() {
     var packPrice = parseFloat(document.getElementById('pack_purchase_price').value) || 0;
     var packQty = parseFloat(document.getElementById('pack_unit_quantity').value) || 1;
     if (packPrice > 0 && packQty > 0) {
         var unitPrice = packPrice / packQty;
-        document.getElementById('purchase_price').value = unitPrice.toFixed(2);
+        document.getElementById('purchase_price').value = unitPrice.toFixed(3);
     }
 }
 
