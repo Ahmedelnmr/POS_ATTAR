@@ -1,7 +1,7 @@
     </main>
 </div>
 <!-- App JS -->
-<!-- App JS -->
+<script src="public/js/app_core.js?v=<?= time() ?>"></script>
 
 </body>
 </html>

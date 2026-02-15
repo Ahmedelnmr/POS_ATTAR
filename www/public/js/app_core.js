@@ -66,7 +66,7 @@ async function apiRequest(url, options = {}) {
             options.body = JSON.stringify(options.body);
         }
 
-        const response = await fetch(url, { ...defaultOptions, ...options });
+        const response = await fetch(url, Object.assign({}, defaultOptions, options));
         return await response.json();
     } catch (error) {
         console.error('API Error:', error);

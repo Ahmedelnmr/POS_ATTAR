@@ -68,4 +68,14 @@ class ReportController {
         $report = $this->reportService->purchasesBySupplier();
         Response::success($report);
     }
+
+    public function financial() {
+        $from = isset($_GET['from']) ? $_GET['from'] : date('Y-m-01');
+        $to = isset($_GET['to']) ? $_GET['to'] : date('Y-m-d');
+
+        $reportService = new ReportService();
+        $data = $reportService->financialReport($from, $to);
+        
+        Response::success($data);
+    }
 }

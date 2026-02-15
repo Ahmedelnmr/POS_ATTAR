@@ -16,8 +16,25 @@
         <button class="btn btn-outline" onclick="loadReport('leastProducts')">📉 الأقل مبيعاً</button>
         <button class="btn btn-outline" onclick="loadReport('lowStock')">⚠️ المخزون المنخفض</button>
         <button class="btn btn-outline" onclick="loadReport('suppliers')">🏭 المشتريات حسب المورد</button>
+        <button class="btn btn-outline" onclick="loadReport('financial')">💰 الأرباح والمصروفات</button>
     </div>
 </div>
+
+<script>
+function loadRangeReport() {
+    const from = document.getElementById('reportDateFrom').value;
+    const to = document.getElementById('reportDateTo').value;
+    
+    if (!from || !to) {
+        alert('الرجاء اختيار الفترة الزمنية');
+        return;
+    }
+    
+    if (currentReport === 'financial') {
+        loadReport('financial');
+    }
+}
+</script>
 
 <!-- Date Range Picker (for range reports) -->
 <div class="card" id="dateRangeCard" style="padding:14px 20px;display:none;">
@@ -32,13 +49,43 @@
 
 <!-- Report Content Area -->
 <div class="card" id="reportContent">
-    <div class="empty-state">
-        <div class="icon">📈</div>
-        <p>اختر نوع التقرير لعرض البيانات</p>
+    <div style="padding:40px; text-align:center;">
+        <div class="spinner"></div>
+        <p style="margin-top:10px; font-weight:bold;">جاري تحميل التقرير...</p>
     </div>
 </div>
 
 <script>
+// API Request Helper (inlined)
+// API Request Helper (inlined)
+async function apiRequest(url, options = {}) {
+    try {
+        const defaultOptions = {
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        };
+
+
+        const finalOptions = Object.assign({}, defaultOptions, options);
+        if (options.body && typeof options.body === 'object') {
+            finalOptions.body = JSON.stringify(options.body);
+        }
+
+        const response = await fetch(url, finalOptions);
+        
+        if (!response.ok) {
+            throw new Error('HTTP Error ' + response.status);
+        }
+
+        return await response.json();
+    } catch (error) {
+        console.error('API Error:', error);
+        return { success: false, message: 'خطأ في الاتصال: ' + error.message };
+    }
+}
+
 let currentReport = '';
 
 async function loadReport(type) {
@@ -47,62 +94,131 @@ async function loadReport(type) {
     const dateCard = document.getElementById('dateRangeCard');
     content.innerHTML = '<div class="spinner"></div>';
 
-    // Update active button
+    // Update active button (only if event exists)
     document.querySelectorAll('.btn-group .btn').forEach(b => {
         b.className = b.className.replace('btn-primary', 'btn-outline');
     });
-    event.target.className = event.target.className.replace('btn-outline', 'btn-primary');
+    
+    // Find and activate the button for this report type
+    const buttons = document.querySelectorAll('.btn-group .btn');
+    const buttonTexts = ['يومي', 'أسبوعي', 'شهري', 'الأكثر', 'الأقل', 'المخزون', 'المشتريات'];
+    const reportTypes = ['daily', 'weekly', 'monthly', 'topProducts', 'leastProducts', 'lowStock', 'suppliers'];
+    const index = reportTypes.indexOf(type);
+    if (index >= 0 && buttons[index]) {
+        buttons[index].className = buttons[index].className.replace('btn-outline', 'btn-primary');
+    }
 
-    let url = '';
-    switch (type) {
-        case 'daily':
-            dateCard.style.display = 'none';
-            url = '?page=reports&action=daily&date=' + (new Date().toISOString().split('T')[0]);
-            const dailyRes = await apiRequest(url);
-            if (dailyRes.success) renderDailyReport(dailyRes.data);
-            break;
+    try {
+        let url = '';
+        switch (type) {
+            case 'daily':
+                dateCard.style.display = 'none';
+                url = '?page=reports&action=daily&date=' + (new Date().toISOString().split('T')[0]);
+                const dailyRes = await apiRequest(url);
+                if (dailyRes.success) {
+                    renderDailyReport(dailyRes.data);
+                } else {
+                    throw new Error(dailyRes.message || 'فشل تحميل التقرير');
+                }
+                break;
 
-        case 'weekly':
-            dateCard.style.display = 'none';
-            const weekFrom = new Date(Date.now() - 7 * 86400000).toISOString().split('T')[0];
-            const weekTo = new Date().toISOString().split('T')[0];
-            url = `?page=reports&action=range&from=${weekFrom}&to=${weekTo}`;
-            const weeklyRes = await apiRequest(url);
-            if (weeklyRes.success) renderRangeReport(weeklyRes.data, 'التقرير الأسبوعي');
-            break;
+            case 'weekly':
+                dateCard.style.display = 'none';
+                const weekFrom = new Date(Date.now() - 7 * 86400000).toISOString().split('T')[0];
+                const weekTo = new Date().toISOString().split('T')[0];
+                url = `?page=reports&action=range&from=${weekFrom}&to=${weekTo}`;
+                const weeklyRes = await apiRequest(url);
+                if (weeklyRes.success) {
+                    renderRangeReport(weeklyRes.data, 'التقرير الأسبوعي');
+                } else {
+                    throw new Error(weeklyRes.message || 'فشل تحميل التقرير');
+                }
+                break;
 
-        case 'monthly':
-            dateCard.style.display = 'none';
-            const monthFrom = new Date().toISOString().slice(0, 8) + '01';
-            const monthTo = new Date().toISOString().split('T')[0];
-            url = `?page=reports&action=range&from=${monthFrom}&to=${monthTo}`;
-            const monthlyRes = await apiRequest(url);
-            if (monthlyRes.success) renderRangeReport(monthlyRes.data, 'التقرير الشهري');
-            break;
+            case 'monthly':
+                dateCard.style.display = 'none';
+                const monthFrom = new Date().toISOString().slice(0, 8) + '01';
+                const monthTo = new Date().toISOString().split('T')[0];
+                url = `?page=reports&action=range&from=${monthFrom}&to=${monthTo}`;
+                const monthlyRes = await apiRequest(url);
+                if (monthlyRes.success) {
+                    renderRangeReport(monthlyRes.data, 'التقرير الشهري');
+                } else {
+                    throw new Error(monthlyRes.message || 'فشل تحميل التقرير');
+                }
+                break;
 
-        case 'topProducts':
-            dateCard.style.display = 'none';
-            const topRes = await apiRequest('?page=reports&action=topProducts');
-            if (topRes.success) renderProductReport(topRes.data, '🏆 الأكثر مبيعاً');
-            break;
+            case 'topProducts':
+                dateCard.style.display = 'none';
+                const topRes = await apiRequest('?page=reports&action=topProducts');
+                if (topRes.success) {
+                    renderProductReport(topRes.data, '🏆 الأكثر مبيعاً');
+                } else {
+                    throw new Error(topRes.message || 'فشل تحميل التقرير');
+                }
+                break;
 
-        case 'leastProducts':
-            dateCard.style.display = 'none';
-            const leastRes = await apiRequest('?page=reports&action=leastProducts');
-            if (leastRes.success) renderLeastReport(leastRes.data);
-            break;
+            case 'leastProducts':
+                dateCard.style.display = 'none';
+                const leastRes = await apiRequest('?page=reports&action=leastProducts');
+                if (leastRes.success) {
+                    renderLeastReport(leastRes.data);
+                } else {
+                    throw new Error(leastRes.message || 'فشل تحميل التقرير');
+                }
+                break;
 
-        case 'lowStock':
-            dateCard.style.display = 'none';
-            const lowRes = await apiRequest('?page=reports&action=lowStock');
-            if (lowRes.success) renderLowStockReport(lowRes.data);
-            break;
+            case 'lowStock':
+                dateCard.style.display = 'none';
+                const lowRes = await apiRequest('?page=reports&action=lowStock');
+                if (lowRes.success) {
+                    renderLowStockReport(lowRes.data);
+                } else {
+                    throw new Error(lowRes.message || 'فشل تحميل التقرير');
+                }
+                break;
 
-        case 'suppliers':
-            dateCard.style.display = 'none';
-            const supRes = await apiRequest('?page=reports&action=supplierPurchases');
-            if (supRes.success) renderSupplierReport(supRes.data);
-            break;
+            case 'suppliers':
+                dateCard.style.display = 'none';
+                const supRes = await apiRequest('?page=reports&action=supplierPurchases');
+                if (supRes.success) {
+                    renderSupplierReport(supRes.data);
+                } else {
+                    throw new Error(supRes.message || 'فشل تحميل التقرير');
+                }
+                break;
+
+            case 'financial':
+                dateCard.style.display = 'flex';
+                // Use input values if set, otherwise default to current month
+                const finFrom = document.getElementById('reportDateFrom').value || (new Date().toISOString().slice(0, 8) + '01');
+                const finTo = document.getElementById('reportDateTo').value || (new Date().toISOString().split('T')[0]);
+                
+                // Set inputs if empty
+                if (!document.getElementById('reportDateFrom').value) {
+                    document.getElementById('reportDateFrom').value = finFrom;
+                    document.getElementById('reportDateTo').value = finTo;
+                }
+
+                url = `?page=reports&action=financial&from=${finFrom}&to=${finTo}`;
+                const finRes = await apiRequest(url);
+                if (finRes.success) {
+                    renderFinancialReport(finRes.data);
+                } else {
+                    throw new Error(finRes.message || 'فشل تحميل التقرير');
+                }
+                break;
+
+        }
+    } catch (error) {
+        console.error('Report Error:', error);
+        content.innerHTML = `
+            <div class="empty-state">
+                <div class="icon" style="font-size:48px;">❌</div>
+                <p style="color:#ef4444; font-weight:bold;">حدث خطأ أثناء تحميل التقرير</p>
+                <p class="text-muted">${error.message || 'حاول مرة أخرى'}</p>
+            </div>
+        `;
     }
 }
 
@@ -250,8 +366,78 @@ function renderSupplierReport(data) {
     `;
 }
 
+
 // Load daily report by default
-document.addEventListener('DOMContentLoaded', function() {
+
+
+function renderFinancialReport(data) {
+    const content = document.getElementById('reportContent');
+    const t = data.totals;
+    const profitClass = t.profit >= 0 ? 'text-success' : 'text-danger';
+    
+    content.innerHTML = `
+        <div class="card-header"><h3>💰 تقرير الأرباح والمصروفات</h3></div>
+        
+        <div class="stats-grid" style="margin-bottom:16px;">
+            <div class="stat-card">
+                <div class="stat-icon green">💵</div>
+                <div class="stat-info">
+                    <h4 class="text-success">${parseFloat(t.income).toFixed(2)}</h4>
+                    <p>إجمالي الإيرادات</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon orange">💸</div>
+                <div class="stat-info">
+                    <h4 class="text-danger">${parseFloat(t.expense).toFixed(2)}</h4>
+                    <p>إجمالي المصروفات</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon blue">⚖️</div>
+                <div class="stat-info">
+                    <h4 class="${profitClass}" style="direction:ltr">${parseFloat(t.profit).toFixed(2)}</h4>
+                    <p>صافي الربح</p>
+                </div>
+            </div>
+        </div>
+
+        ${data.daily.length ? `
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>التاريخ</th>
+                        <th>الإيرادات</th>
+                        <th>المصروفات</th>
+                        <th>الربح/الخسارة</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${data.daily.map(d => {
+                        const income = parseFloat(d.income);
+                        const expense = parseFloat(d.expense);
+                        const profit = income - expense;
+                        const pClass = profit >= 0 ? 'text-success' : 'text-danger';
+                        return `
+                        <tr>
+                            <td class="fw-bold">${d.date}</td>
+                            <td class="text-success">${income.toFixed(2)}</td>
+                            <td class="text-danger">${expense.toFixed(2)}</td>
+                            <td class="${pClass}" style="direction:ltr; font-weight:bold">${profit.toFixed(2)}</td>
+                        </tr>`;
+                    }).join('')}
+                </tbody>
+            </table>
+        </div>` : '<div class="empty-state"><p>لا توجد بيانات</p></div>'}
+    `;
+}
+
+// Load daily report by default - executed immediately at end of body
+try {
     loadReport('daily');
-});
+} catch(e) {
+    console.error('Global Script Error:', e);
+    document.getElementById('reportContent').innerHTML = '<div style="color:red; padding:20px; text-align:center;">حدث خطأ غير متوقع: ' + e.message + '</div>';
+}
 </script>

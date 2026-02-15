@@ -137,6 +137,62 @@ class SaleRepository {
     }
 
     /**
+     * Delete a sale and its items
+     */
+    public function delete($id) {
+        $itemStmt = $this->db->prepare("DELETE FROM sale_items WHERE sale_id = :id");
+        $itemStmt->execute([':id' => $id]);
+
+        $saleStmt = $this->db->prepare("DELETE FROM sales WHERE id = :id");
+        $saleStmt->execute([':id' => $id]);
+    }
+
+    /**
+     * Delete only sale items (for update)
+     */
+    public function deleteItems($saleId) {
+        $stmt = $this->db->prepare("DELETE FROM sale_items WHERE sale_id = :id");
+        $stmt->execute([':id' => $saleId]);
+    }
+
+    /**
+     * Add single item to sale
+     */
+    public function addItem($saleId, $item) {
+        $stmt = $this->db->prepare(
+            "INSERT INTO sale_items (sale_id, product_id, product_name, quantity, unit_type, price, sale_mode, subtotal)
+             VALUES (:sale_id, :product_id, :product_name, :quantity, :unit_type, :price, :sale_mode, :subtotal)"
+        );
+        $stmt->execute([
+            ':sale_id' => $saleId,
+            ':product_id' => $item['product_id'],
+            ':product_name' => $item['product_name'],
+            ':quantity' => $item['quantity'],
+            ':unit_type' => $item['unit_type'] ?? 'قطعة',
+            ':price' => $item['price'],
+            ':sale_mode' => $item['sale_mode'] ?? 'unit',
+            ':subtotal' => $item['subtotal']
+        ]);
+    }
+
+    /**
+     * Update sale totals
+     */
+    public function updateTotals($saleId, $total, $discount, $reason) {
+        $stmt = $this->db->prepare(
+            "UPDATE sales 
+             SET total = :total, discount = :discount, notes = :reason
+             WHERE id = :id"
+        );
+        $stmt->execute([
+            ':id' => $saleId,
+            ':total' => $total,
+            ':discount' => $discount,
+            ':reason' => $reason
+        ]);
+    }
+
+    /**
      * Count total sales
      */
     public function count() {

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Reports JS</title>
+</head>
+<body>
+    <h1>Open Browser Console (F12) to see errors</h1>
+    <button onclick="testLoad()">Test Load Daily</button>
+    <div id="result"></div>
+
+    <script>
+        async function apiRequest(url) {
+            console.log('API Request to:', url);
+            return { success: true, data: { summary: { total: 100, count: 5, discount: 0 }, sales: [], date: '2024-01-01' } };
+        }
+
+        async function loadReport(type) {
+            console.log('loadReport called with type:', type);
+            const content = document.getElementById('result');
+            
+            // This line will fail if event is undefined
+            try {
+                event.target.className = 'test';
+            } catch(e) {
+                console.error('ERROR accessing event.target:', e.message);
+                content.innerHTML = 'ERROR: ' + e.message;
+            }
+        }
+
+        function testLoad() {
+            loadReport('daily');
+        }
+
+        // This simulates the DOMContentLoaded call
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOMContentLoaded fired');
+            loadReport('daily');
+        });
+    </script>
+</body>
+</html>

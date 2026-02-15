@@ -22,7 +22,6 @@
                 <label>الباركود</label>
                 <div style="display:flex; align-items:center;">
                     <input type="text" name="barcode" id="barcode" class="form-control" value="<?= htmlspecialchars($product['barcode'] ?? '') ?>" placeholder="اختياري" style="flex:1;">
-                    <button type="button" class="btn btn-warning" onclick="startScanner()" style="margin-right:10px; min-width:80px;">📷 مسح</button>
                 </div>
             </div>
             <div class="form-group">
@@ -123,77 +122,65 @@
     </form>
 </div>
 
-<!-- Scanner Modal -->
-<div id="scannerModal" class="modal-overlay">
-    <div class="modal">
-        <div class="modal-header">
-            <h3>📷 مسح الباركود</h3>
-            <button type="button" class="modal-close" onclick="stopScanner()">×</button>
-        </div>
-        <div class="modal-body">
-            <div id="reader" style="width: 100%;"></div>
-            <p class="text-muted text-center mt-2">وجه الكاميرا نحو الباركود</p>
-        </div>
-    </div>
-</div>
 
-<script src="public/js/html5-qrcode.min.js?v=<?= time() ?>"></script>
 <script>
-let html5QrCode;
+// Global Scanner Listener
+let scanBuffer = '';
+let lastKeyTime = 0;
+const SCAN_TIMING_THRESHOLD = 100; // ms
 
-function startScanner() {
-    document.getElementById("scannerModal").style.display = "flex";
+document.addEventListener('keydown', function(e) {
+    // If user is typing in an input, allow it (unless it's the body)
+    // BUT we want to capture scanner input even if focus is elsewhere, 
+    // provided it looks like a scan (fast input).
+    // However, if user is typing in "Name" field, we shouldn't hijack it.
+    // The requirement is "don't press anything", implies focus might be anywhere or nowhere.
     
-    // Check if html5QrCode is defined
-    if (typeof Html5Qrcode === "undefined") {
-        alert("خطأ: مكتبة المسح الضوئي غير محملة. تأكد من وجود ملف html5-qrcode.min.js");
-        return;
+    // Strategy: 
+    // 1. If focus is on "Barcode" field, let standard input handle it (scanner acts as keyboard).
+    // 2. If focus is on another field (Name, Price), we probably shouldn't interfere OR 
+    //    we should check if the input is very fast.
+    //    If I scan while focused on "Name", the scanner types the barcode into "Name".
+    //    The user explicitly said "I don't want to press scan, just scan automatically".
+    //    Usually this means "I open the page, scan, and it fills the barcode".
+    //    If the page loads, where is the focus?
+    //    If I autofocus "Name" (line 19), then scanner will fill Name.
+    //    I should probably CHANGE autofocus to Barcode? Or detect scan and move it?
+    
+    //    If I detect a scan (fast input), I should move the buffer to the Barcode field.
+    
+    const target = e.target;
+    // If scanning while focused on an input, the input receives keys.
+    // We can intercept 'Enter' and check if the content looks like a barcode?
+    // Or we use the buffer logic generally.
+    
+    const currentTime = Date.now();
+    if (currentTime - lastKeyTime > SCAN_TIMING_THRESHOLD) {
+        scanBuffer = '';
     }
+    lastKeyTime = currentTime;
 
-    html5QrCode = new Html5Qrcode("reader");
-    html5QrCode.start(
-        { facingMode: "environment" }, 
-        { fps: 10, qrbox: 250 },
-        (decodedText, decodedResult) => {
-            // Success
-            // Trim whitespace to prevent validation errors
-            document.getElementById("barcode").value = decodedText.trim();
-            // Play sound
-            let audio = new Audio("public/audio/beep.mp3");
-            audio.play().catch(e => {});
+    if (e.ctrlKey || e.altKey || e.metaKey) return;
+
+    if (e.key === 'Enter') {
+        if (scanBuffer.length > 0) {
+            // It's a scan!
+            e.preventDefault(); // Stop form submission
+            console.log('Scanner detected:', scanBuffer);
             
-            stopScanner();
-        },
-        (errorMessage) => {
-            // ignore
+            var barcodeField = document.getElementById('barcode');
+            if (barcodeField) {
+                barcodeField.value = scanBuffer;
+                // Optional: Flash the field to show update
+                barcodeField.style.backgroundColor = '#dcfce7';
+                setTimeout(() => barcodeField.style.backgroundColor = '', 500);
+            }
+            scanBuffer = '';
         }
-    ).catch(err => {
-        console.error(err);
-        var msg = "فشل تشغيل الكاميرا:\n";
-        if (err.name === "NotAllowedError" || err.name === "PermissionDeniedError") {
-            msg += "تم رفض الصلاحية للوصول للكاميرا.";
-        } else if (err.name === "NotFoundError" || err.name === "DevicesNotFoundError") {
-            msg += "لا توجد كاميرا متصلة بالجهاز.";
-        } else if (err.name === "NotReadableError" || err.name === "TrackStartError") {
-            msg += "الكاميرا مستخدمة بالفعل من قبل تطبيق آخر.";
-        } else {
-            msg += (err.name || "خطأ غير معروف") + ": " + (err.message || err);
-        }
-        alert(msg);
-        stopScanner();
-    });
-}
-
-function stopScanner() {
-    document.getElementById("scannerModal").style.display = "none";
-    if (html5QrCode) {
-        html5QrCode.stop().then(() => {
-            html5QrCode.clear(); 
-        }).catch(err => {
-            console.error("Failed to stop scanner", err);
-        });
+    } else if (e.key.length === 1) {
+        scanBuffer += e.key;
     }
-}
+});
 
 // Initialize
 document.addEventListener('DOMContentLoaded', function() {
@@ -258,5 +245,4 @@ function calculateUnitPrice() {
         document.getElementById('purchase_price').value = unitPrice.toFixed(3);
     }
 }
-
 </script>

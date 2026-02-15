@@ -87,11 +87,7 @@
         
         <hr>
 
-        <!-- Scanner -->
-        <div id="embeddedScanner" style="position: relative;">
-            <div id="reader"></div>
-            <div id="scannerStatus" class="scanner-status" style="background:rgba(0,0,0,0.05); color:#666;">جاري تحميل الكاميرا...</div>
-        </div>
+
 
         <hr>
         
@@ -811,4 +807,47 @@ function saveInvoice() {
         alert('حدث خطأ في الاتصال');
     });
 }
+
+// ==========================================
+// 6. GLOBAL SCANNER LISTENER
+// ==========================================
+var scanBuffer = '';
+var lastKeyTime = 0;
+var SCAN_TIMING_THRESHOLD = 50; // ms (Stricter for purchases)
+
+document.addEventListener('keydown', function(e) {
+    // Ignore input fields
+    var target = e.target;
+    if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.tagName === 'SELECT') {
+        return; 
+    }
+
+    var currentTime = Date.now();
+    
+    // Reset buffer if too slow (manual typing detected)
+    if (currentTime - lastKeyTime > SCAN_TIMING_THRESHOLD) {
+        scanBuffer = '';
+    }
+    
+    lastKeyTime = currentTime;
+
+    // Ignore modifier keys
+    if (e.ctrlKey || e.altKey || e.metaKey) return;
+
+    if (e.key === 'Enter') {
+        // If buffer has content, treat as scan
+        if (scanBuffer.length > 0) {
+            e.preventDefault();
+            console.log('Scanner Input Detected:', scanBuffer);
+            
+            // Trigger Find & Add
+            findAndAddProduct(scanBuffer);
+            
+            scanBuffer = '';
+        }
+    } else if (e.key.length === 1) {
+        // Append printable characters
+        scanBuffer += e.key;
+    }
+});
 </script>

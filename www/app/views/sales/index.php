@@ -4,6 +4,13 @@
         <h1>💵 سجل المبيعات</h1>
         <p class="subtitle">مبيعات اليوم: <?= $todaySummary['count'] ?? 0 ?> فاتورة | الإجمالي: <?= number_format($todaySummary['total'] ?? 0, 2) ?></p>
     </div>
+    
+    <?php if (isset($_GET['msg']) && $_GET['msg'] == 'deleted'): ?>
+    <div class="alert alert-success" style="padding:10px; background:#dcfce7; color:#166534; margin:10px 0; border-radius:4px;">✅ تم حذف الفاتورة بنجاح وإعادة الكميات للمخزون.</div>
+    <?php endif; ?>
+    <?php if (isset($_GET['error'])): ?>
+    <div class="alert alert-danger" style="padding:10px; background:#fee2e2; color:#991b1b; margin:10px 0; border-radius:4px;">❌ <?= htmlspecialchars($_GET['error']) ?></div>
+    <?php endif; ?>
 </div>
 
 <!-- Filters -->
@@ -45,6 +52,8 @@
                     <td><span class="badge badge-success"><?= $s['payment_method'] === 'cash' ? 'نقدي' : $s['payment_method'] ?></span></td>
                     <td>
                         <a href="?page=sales&action=view&id=<?= $s['id'] ?>" class="btn btn-sm btn-outline">🧾 إيصال</a>
+                        <a href="?page=sales&action=edit_form&id=<?= $s['id'] ?>" class="btn btn-sm btn-primary">📝 تعديل</a>
+                        <a href="?page=sales&action=delete&id=<?= $s['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('حذف الفاتورة نهائياً؟')">🗑️ حذف</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>

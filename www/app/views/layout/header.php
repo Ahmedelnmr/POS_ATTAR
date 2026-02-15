@@ -11,7 +11,7 @@ $currentPage = $_GET['page'] ?? 'dashboard';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>نظام نقاط البيع والمخزون</title>
     <link rel="stylesheet" href="public/css/main.css?v=<?= time() ?>">
-    <script src="public/js/app_core.js?v=<?= time() ?>"></script>
+
 </head>
 <body>
 <div class="toast-container" id="toastContainer"></div>

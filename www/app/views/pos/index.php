@@ -2,6 +2,15 @@
 /**
  * POS Main Screen - Standalone (no sidebar layout)
  */
+// Start session for cart restore
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+$restoreCart = [];
+if (isset($_SESSION['pos_cart_restore'])) {
+    $restoreCart = $_SESSION['pos_cart_restore'];
+    unset($_SESSION['pos_cart_restore']);
+}
 ?>
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
@@ -39,10 +48,7 @@ window.onerror = function(msg, url, line, col, error) {
     <div class="pos-input-section">
         <div class="pos-input-wrapper">
              <!-- Embedded Scanner Container -->
-            <div id="embeddedScanner" style="width: 320px; height: 240px; background: #000; overflow: hidden; border-radius: 8px; border: 2px solid var(--primary); margin-left: 10px; position: relative;">
-                <div id="reader" style="width: 100%; height: 100%;"></div>
-                <div id="scannerStatus" style="position:absolute; bottom:0; left:0; right:0; background:rgba(0,0,0,0.5); color:white; font-size:10px; text-align:center; padding:2px;">جاري التشغيل...</div>
-            </div>
+
 
             <div style="flex: 1;">
                 <div class="pos-input-group">
@@ -218,73 +224,21 @@ window.onerror = function(msg, url, line, col, error) {
     </div>
 </div>
 
-<script src="public/js/html5-qrcode.min.js?v=<?= time() ?>"></script>
-<script>
-let html5QrCode;
 
-function startScanner() {
-    // Check if html5QrCode is defined
-    if (typeof Html5Qrcode === "undefined") {
-        document.getElementById('scannerStatus').textContent = "خطأ: المكتبة غير محملة";
-        document.getElementById('scannerStatus').style.background = "red";
-        return;
-    }
-
-    html5QrCode = new Html5Qrcode("reader");
-    // Try environment first, but dont enforce strict if desktop (no back camera)
-    // Actually Html5Qrcode handles "environment" gracefully usually
-    html5QrCode.start(
-        { facingMode: "environment" }, 
-        { fps: 10, qrbox: { width: 250, height: 150 } }, // Explicit box size
-        (decodedText, decodedResult) => {
-            // Success
-            document.getElementById('scannerStatus').textContent = "✅ تم المسح";
-            document.getElementById('scannerStatus').style.background = "green";
-            setTimeout(() => {
-                 document.getElementById('scannerStatus').textContent = "📷 جاري المسح...";
-                 document.getElementById('scannerStatus').style.background = "rgba(0,0,0,0.5)";
-            }, 1000);
-            
-            // Check for duplicate scan
-            if (window.lastScannedCode === decodedText) {
-                const now = new Date().getTime();
-                if (now - window.lastScannedTime < 2000) {
-                    return; // Ignore duplicate scan within 2 seconds
-                }
-            }
-            
-            window.lastScannedCode = decodedText;
-            window.lastScannedTime = new Date().getTime();
-
-            // Add to cart directly
-            addByCode(decodedText);
-            
-            // Play sound
-            let audio = new Audio("public/audio/beep.mp3");
-            audio.play().catch(e => {});
-
-            // NO stopScanner() - Keep running!
-        },
-        (errorMessage) => {
-            // ignore
-        }
-    ).then(() => {
-        document.getElementById('scannerStatus').textContent = "📷 الكاميرا تعمل";
-    }).catch(err => {
-        console.warn("Camera start failed: " + err);
-        document.getElementById('scannerStatus').textContent = "❌ خطأ: الكاميرا";
-        document.getElementById('scannerStatus').style.background = "red";
-    });
-}
-
-// Auto-start on load
-document.addEventListener('DOMContentLoaded', function() {
-    startScanner();
-});
-
-
-</script>
 <script src="public/js/pos_core.js?v=<?= time() ?>"></script>
 <script src="public/js/pos_shortcuts.js?v=<?= time() ?>"></script>
+<script>
+<?php if (!empty($restoreCart)): ?>
+    window.addEventListener('load', function() {
+        try {
+            window.cart = <?= json_encode($restoreCart) ?>;
+            if(window.cart && window.cart.length > 0) {
+                renderCart();
+                setTimeout(function() { showToast('✅ تم استرجاع الفاتورة للتعديل'); }, 500);
+            }
+        } catch(e) { console.error(e); }
+    });
+<?php endif; ?>
+</script>
 </body>
 </html>

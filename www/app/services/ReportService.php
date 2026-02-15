@@ -219,4 +219,51 @@ class ReportService {
             'month_total' => $monthTotal,
         ];
     }
+
+    /**
+     * Financial Report (Income vs Expenses)
+     */
+    public function financialReport($dateFrom, $dateTo) {
+        $sql = "
+            SELECT 
+                d.date,
+                COALESCE(SUM(s.total), 0) as income,
+                COALESCE(SUM(pi.total), 0) as expense
+            FROM (
+                SELECT date(datetime) as date FROM sales WHERE date(datetime) BETWEEN :from1 AND :to1
+                UNION
+                SELECT date FROM purchase_invoices WHERE date BETWEEN :from2 AND :to2
+            ) d
+            LEFT JOIN sales s ON date(s.datetime) = d.date
+            LEFT JOIN purchase_invoices pi ON pi.date = d.date
+            GROUP BY d.date
+            ORDER BY d.date DESC
+        ";
+        
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([
+            ':from1' => $dateFrom, ':to1' => $dateTo,
+            ':from2' => $dateFrom, ':to2' => $dateTo
+        ]);
+        
+        $daily = $stmt->fetchAll();
+        
+        // Calculate totals
+        $totalIncome = 0;
+        $totalExpense = 0;
+        foreach ($daily as $row) {
+            $totalIncome += $row['income'];
+            $totalExpense += $row['expense'];
+        }
+        
+        return [
+            'daily' => $daily,
+            'totals' => [
+                'income' => $totalIncome,
+                'expense' => $totalExpense,
+                'profit' => $totalIncome - $totalExpense
+            ]
+        ];
+    }
 }
+
